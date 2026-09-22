@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Start Freelancing — The Side Hustle Hub</title>
+<meta name="description" content="A free 5-level course for Malaysian students. Pick your skill, research your rate, build a portfolio with no clients, find work, and get paid without getting burned.">
+<meta property="og:title" content="How to Start Freelancing — free course">
+<meta property="og:description" content="5 short levels. Research your rate, build a portfolio, find clients, get paid safely.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#B8962E;--gold-light:#D4AF50;--gold-bright:#E8C96A;
+    --white:#FFF;--off-white:#FDFBF6;--cream:#F9F4E8;--warm-grey:#F2EDE0;
+    --text-dark:#1A1510;--text-mid:#4A4035;--text-muted:#8A7A65;--text-light:#B8A990;
+    --border:rgba(184,150,46,.18);--border-mid:rgba(184,150,46,.35);
+    --shadow-lg:0 16px 64px rgba(184,150,46,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--off-white);color:var(--text-dark);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;
+      justify-content:space-between;align-items:center;background:rgba(253,251,246,.94);
+      backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
+            text-transform:uppercase;color:var(--gold);text-decoration:none}
+  .nav-prog{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
+            text-transform:uppercase;color:var(--text-muted)}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .head{padding:120px 0 44px;text-align:center}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;
+           text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,58px);font-weight:600;
+     line-height:1.05;margin-bottom:18px}
+  h1 em{font-style:italic;color:var(--gold)}
+  .lede{font-size:16.5px;line-height:1.8;color:var(--text-mid);font-weight:400;max-width:530px;margin:0 auto}
+
+  .dots{display:flex;justify-content:center;gap:8px;margin-top:32px}
+  .dot{width:34px;height:3px;background:var(--warm-grey);transition:background .3s}
+  .dot.done{background:var(--gold)} .dot.now{background:var(--gold-bright)}
+
+  .levels{padding:18px 0 80px}
+  .lvl{border:1px solid var(--border);background:var(--white);margin-bottom:14px;transition:.25s}
+  .lvl.open{border-color:var(--border-mid);box-shadow:var(--shadow-lg)}
+  .lvl.locked{background:var(--warm-grey);border-style:dashed;opacity:.75}
+
+  .lvl-head{display:flex;align-items:center;gap:18px;padding:24px 28px;cursor:pointer;
+            width:100%;background:none;border:none;text-align:left;font-family:'DM Sans',sans-serif}
+  .lvl.locked .lvl-head{cursor:default}
+  .lvl-badge{width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);display:flex;
+             align-items:center;justify-content:center;flex-shrink:0;font-family:'Cormorant Garamond',serif;
+             font-size:18px;font-weight:600;color:var(--gold);background:var(--white)}
+  .lvl.locked .lvl-badge{border-color:var(--text-light);color:var(--text-light);background:transparent}
+  .lvl.done .lvl-badge{background:var(--gold);color:#fff}
+  .lvl-t{flex:1}
+  .lvl-t h2{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;line-height:1.2}
+  .lvl.locked .lvl-t h2{color:var(--text-light)}
+  .lvl-meta{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.5px;
+            text-transform:uppercase;color:var(--text-light);margin-top:5px;display:block}
+  .chev{color:var(--text-light);font-size:18px}
+
+  .lvl-body{display:none;padding:0 28px 30px;border-top:1px solid var(--border)}
+  .lvl.open .lvl-body{display:block;animation:fade .3s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+  .vid{background:var(--cream);border:1px solid var(--border-mid);aspect-ratio:16/9;display:flex;
+       flex-direction:column;align-items:center;justify-content:center;margin:26px 0;text-align:center;padding:20px}
+  .vid-icon{width:52px;height:52px;border-radius:50%;background:var(--gold);display:flex;
+            align-items:center;justify-content:center;margin-bottom:14px}
+  .vid p{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
+         text-transform:uppercase;color:var(--text-light)}
+  .vid iframe{width:100%;height:100%;border:0}
+
+  .lvl-body p{font-size:15.5px;line-height:1.85;color:var(--text-mid);margin-bottom:16px}
+  .lvl-body p strong{color:var(--text-dark);font-weight:600}
+  .lvl-body h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:26px 0 12px}
+  .lvl-body ul{list-style:none;margin-bottom:18px;display:flex;flex-direction:column;gap:10px}
+  .lvl-body li{font-size:15.5px;line-height:1.7;color:var(--text-mid);display:flex;gap:12px}
+  .lvl-body li::before{content:'✦';color:var(--gold);font-size:8px;margin-top:7px;flex-shrink:0}
+  .lvl-body a{color:var(--gold)}
+
+  .quote{background:var(--cream);border-left:3px solid var(--gold);padding:20px 24px;margin:22px 0;
+         font-size:15px;line-height:1.8;color:var(--text-mid);white-space:pre-line}
+  .prompt{background:var(--text-dark);color:rgba(255,255,255,.88);padding:22px 24px;margin:20px 0 12px;
+          font-family:'Space Mono',monospace;font-size:12.5px;line-height:1.75;white-space:pre-line;
+          border-left:3px solid var(--gold-bright);overflow-x:auto}
+  .copy-btn{background:none;border:1px solid var(--border-mid);color:var(--text-muted);
+            font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 18px;
+            cursor:pointer;font-family:'DM Sans',sans-serif;margin-bottom:20px}
+  .copy-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+  .exbox{margin:20px 0}
+  .exbox img{width:100%;display:block;border:1px solid var(--border-mid)}
+  .exbox .ph{background:var(--cream);border:1px dashed var(--border-mid);padding:34px 20px;
+             text-align:center;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
+             text-transform:uppercase;color:var(--text-light)}
+  .exbox .cap{font-size:12.5px;color:var(--text-muted);margin-top:8px;font-style:italic}
+
+  .todo{background:var(--text-dark);color:#fff;padding:26px 28px;margin-top:30px}
+  .todo .t-lab{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:2.5px;
+               text-transform:uppercase;color:var(--gold-bright);margin-bottom:10px}
+  .todo p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.85);margin:0}
+
+  .btn{background:var(--gold);color:#fff;border:none;cursor:pointer;padding:15px 34px;
+       font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;
+       text-transform:uppercase;transition:.25s;margin-top:22px;display:inline-block;text-decoration:none}
+  .btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+  .lvl.done .btn.mark{background:var(--warm-grey);color:var(--text-light)}
+  .skip{display:block;margin-top:14px;font-size:12px;color:var(--text-light);background:none;
+        border:none;cursor:pointer;text-decoration:underline;font-family:'DM Sans',sans-serif}
+  .skip:hover{color:var(--gold)}
+
+  /* ---- rate research tool ---- */
+  .rs{background:var(--cream);border:1px solid var(--border-mid);border-left:3px solid var(--gold);
+      padding:28px;margin:24px 0}
+  .rs h4{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:6px}
+  .rs .sub{font-size:13.5px;color:var(--text-muted);margin-bottom:20px;line-height:1.65}
+  .rs .hdr{display:grid;grid-template-columns:1fr 108px;gap:9px;margin-bottom:7px}
+  .rs .hdr span{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.5px;
+                text-transform:uppercase;color:var(--text-mid)}
+  .rs .row{display:grid;grid-template-columns:1fr 108px;gap:9px;margin-bottom:9px}
+  .rs input{width:100%;padding:12px 13px;border:1px solid var(--border-mid);background:var(--white);
+            font-family:'DM Sans',sans-serif;font-size:14.5px;color:var(--text-dark);border-radius:1px}
+  .rs input:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .rs .btn{width:100%;text-align:center;margin-top:8px}
+  .rsout{margin-top:22px;display:none}
+  .rsout.show{display:block;animation:fade .35s ease}
+  .rs-hero{background:var(--text-dark);color:#fff;padding:28px 24px;text-align:center;position:relative;overflow:hidden}
+  .rs-hero::before{content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 70% at 50% 40%,rgba(184,150,46,.18) 0,transparent 70%)}
+  .rs-hero>*{position:relative;z-index:2}
+  .rs-lab{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:2.5px;
+          text-transform:uppercase;color:var(--gold-bright);margin-bottom:12px}
+  .rs-num{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:600;color:var(--gold-bright);line-height:1}
+  .rs-sub{font-size:12.5px;color:rgba(255,255,255,.55);margin-top:11px}
+  .rs-bars{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);
+           border-top:none;background:var(--white)}
+  .rs-bars div{padding:15px 8px;text-align:center;border-right:1px solid var(--border)}
+  .rs-bars div:last-child{border-right:none}
+  .rs-bars .n{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--gold)}
+  .rs-bars .l{font-family:'Space Mono',monospace;font-size:7.5px;letter-spacing:1px;
+              text-transform:uppercase;color:var(--text-muted);margin-top:4px}
+  .rs-note{background:var(--white);border:1px solid var(--border);border-top:none;padding:20px 22px}
+  .rs-note p{font-size:14.5px;line-height:1.8;color:var(--text-muted);margin-bottom:12px}
+  .rs-note p:last-child{margin-bottom:0}
+  .rs-note strong{color:var(--text-dark)}
+
+  .fin{background:var(--text-dark);color:#fff;padding:80px 24px;text-align:center;
+       position:relative;overflow:hidden;display:none}
+  .fin.show{display:block}
+  .fin::before{content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(184,150,46,.14) 0,transparent 70%)}
+  .fin>*{position:relative;z-index:2}
+  .fin .eyebrow{color:var(--gold-bright)}
+  .fin h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);font-weight:600;
+          line-height:1.1;margin-bottom:16px}
+  .fin h2 em{font-style:italic;color:var(--gold-bright)}
+  .fin p{font-size:15px;line-height:1.8;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto}
+  .fin .price{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;
+              color:var(--gold-bright);margin:26px 0 4px}
+  .fin .price span{display:block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
+                   text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:8px}
+
+  footer{background:var(--cream);border-top:1px solid var(--border);padding:38px 24px;text-align:center}
+  .f-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
+          text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .f-links{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+  .f-links a{font-size:11px;color:var(--text-muted);text-decoration:none;letter-spacing:1.5px;text-transform:uppercase}
+  .f-links a:hover{color:var(--gold)}
+  .f-copy{font-size:11px;color:var(--text-light)}
+  .reset{text-align:center;padding:0 0 40px}
+  .reset button{background:none;border:none;color:var(--text-light);font-size:11px;cursor:pointer;
+                text-decoration:underline;font-family:'DM Sans',sans-serif}
+
+  a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+  @media(max-width:640px){
+    nav{padding:14px 18px}.nav-logo{font-size:8.5px;letter-spacing:2px}
+    .head{padding:100px 0 32px}
+    .lvl-head{padding:20px 18px;gap:14px}.lvl-body{padding:0 18px 26px}
+    .lvl-t h2{font-size:19px}.todo{padding:22px 18px}
+    .btn{width:100%;text-align:center}.dot{width:24px}
+    .rs{padding:20px}.rs .row,.rs .hdr{grid-template-columns:1fr 88px}
+    .rs-bars{grid-template-columns:1fr}
+    .rs-bars div{border-right:none;border-bottom:1px solid var(--border)}
+    .rs-bars div:last-child{border-bottom:none}
+    .rs-num{font-size:42px}.prompt{font-size:11.5px;padding:18px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  <span class="nav-prog" id="navProg">Level 1 of 5</span>
+</nav>
+
+<div class="wrap">
+  <div class="head">
+    <div class="eyebrow">Free Course &middot; 5 Levels</div>
+    <h1>How to start <em>freelancing</em></h1>
+    <p class="lede">Five short levels. Each one takes a few minutes and gives you one thing to do.
+    Finish a level to open the next one. Your progress is saved, so you can close this page and come back later.</p>
+    <div class="dots" id="dots"></div>
+  </div>
+  <div class="levels" id="levels"></div>
+</div>
+
+<section class="fin" id="fin">
+  <div class="eyebrow">You Finished</div>
+  <h2>You know the plan.<br/>Now <em>send the first message.</em></h2>
+  <p>Everything here works, but only if you actually send it. If you want help with your own
+  situation, book a call with me.</p>
+  <div class="price">RM100<span>45 minute call</span></div>
+  <a class="btn" href="REPLACE_WITH_YOUR_CALENDLY_LINK">Book a Call</a>
+</section>
+
+<div class="reset"><button onclick="resetAll()">Reset my progress</button></div>
+
+<footer>
+  <div class="f-logo">Syaarveeni &times; The Side Hustle Hub</div>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#products">Free Resources</a>
+    <a href="https://instagram.com/syaaarveeni">Instagram</a>
+  </div>
+  <p class="f-copy">&copy; 2026 Syaarveeni &middot; The Side Hustle Hub &middot; All rights reserved.</p>
+</footer>
+
+<script>
+/* ==========================================================================
+   EDIT YOUR COURSE HERE
+   --------------------------------------------------------------------------
+   Everything you might want to change is in the list below.
+
+   For each level you can edit:
+     title   the level name
+     mins    how long it takes
+     video   a YouTube embed link, or "" for an empty video box
+     body    the lesson text
+     task    the one thing to do before the next level
+
+   TO ADD A VIDEO:
+     Upload to YouTube as Unlisted, click Share then Embed,
+     copy the https://www.youtube.com/embed/... link, paste it after video:
+
+   INSIDE body YOU CAN USE:
+     <p>paragraph</p>   <h3>small heading</h3>   <ul><li>bullet</li></ul>
+     <div class="quote">highlighted box, good for message scripts</div>
+     <div class="prompt">dark box, good for AI prompts</div>
+     <strong>bold</strong>
+     {{RESEARCH}}                  the rate research tool
+     {{IMG:filename.jpg|caption}}  your own screenshot, or a placeholder box
+
+   ANYTHING IN [SQUARE BRACKETS] IS A GAP FOR YOU TO FILL IN.
+   ========================================================================== */
+
+var COURSE = [
+
+/* ---------------- LEVEL 1 ---------------- */
+{
+  title: "Pick your skill and find your rate",
+  mins: "5 min",
+  video: "",
+  body: `
+    <p>Freelancing is simpler than it sounds. Someone has work they cannot do themselves. You do it.
+    They pay you. The hard part is knowing what you can sell and what to charge for it.</p>
+
+    <h3>1. Pick one skill to start</h3>
+    <p>These are the ones Malaysian small businesses actually pay students for:</p>
+    <ul>
+      <li><strong>Graphic design.</strong> Posters, menus, social media posts. Canva is enough to start.</li>
+      <li><strong>Short-form video editing.</strong> Reels and TikToks for businesses and creators.</li>
+      <li><strong>Copywriting.</strong> Captions, product descriptions, website text.</li>
+      <li><strong>Translation.</strong> BM to English and back. Being properly bilingual is a paid skill.</li>
+      <li><strong>Social media management.</strong> Running the whole account, not just making posts.</li>
+      <li><strong>Virtual assistant work.</strong> Admin, email, scheduling, data entry.</li>
+      <li><strong>Photography.</strong> Products, events, food for restaurants.</li>
+      <li><strong>Simple websites.</strong> Wix, Framer or Carrd. You do not need to code.</li>
+    </ul>
+    <p><strong>Pick the one you can already do today</strong>, even if you are not amazing at it.
+    You get better by doing paid work, not by waiting until you feel ready.</p>
+
+    <h3>2. Nobody can tell you your rate</h3>
+    <p>Not me, not a blog post, not a video. Freelance rates change with your skill, your client, your
+    city and the year. Anyone who gives you one number is guessing.</p>
+    <p><strong>So learn to find it yourself.</strong> This takes 20 minutes and you can redo it every
+    six months, forever.</p>
+
+    <h3>3. Where to find real prices</h3>
+    <ul>
+      <li><strong>Fiverr and Upwork, filtered to Malaysia.</strong> Search your skill, set the seller
+      location to Malaysia. You will see real prices from real people here.</li>
+      <li><strong>Instagram bios that say "DM for rates".</strong> Message a few as if you were a
+      customer. This is the fastest way to find actual local prices.</li>
+      <li><strong>Facebook freelance and small business groups.</strong> Search the group for your
+      skill. People post budgets and quotes constantly.</li>
+      <li><strong>Agency price pages.</strong> Search "social media package Malaysia price". Agencies
+      publish rates. You are not an agency, so you will sit well under them, but it shows you the ceiling.</li>
+      <li><strong>Just ask.</strong> Message 3 freelancers doing what you want to do and ask what
+      they charged when they started. Most people answer.</li>
+    </ul>
+
+    <h3>4. Work out your starting price</h3>
+    <p>Find 5 people doing the work you want to do and write down what they charge. Compare like for
+    like: one poster against one poster, one month against one month. Then put the numbers in here.</p>
+
+    {{RESEARCH}}
+
+    <p>[YOUR STORY: What was your first freelance job and what did you charge? Did you undercharge?
+    Almost everyone does, and it helps to hear it.]</p>
+  `,
+  task: "Do the research. Find 5 real prices and fill in the table above. 20 minutes. Do not skip this, it is the whole level."
+},
+
+/* ---------------- LEVEL 2 ---------------- */
+{
+  title: "Build a portfolio with no clients",
+  mins: "4 min",
+  video: "",
+  body: `
+    <p>The problem everyone hits: clients want to see past work, and you cannot get past work without
+    clients.</p>
+    <p><strong>You break it by making work nobody asked for.</strong> A client cannot tell whether
+    you were paid for a piece. They only care whether it is good.</p>
+
+    <h3>Three ways to build one this week</h3>
+    <ul>
+      <li><strong>Redo a real local business.</strong> Pick a restaurant or shop near you with bad
+      posters. Redesign them. Now you have a real before and after, with a real business name. This
+      is also your outreach message, which we cover next level.</li>
+      <li><strong>Make pretend projects.</strong> Design a menu for a cafe that does not exist. Edit
+      a reel for a made-up brand. Label it clearly as a concept piece.</li>
+      <li><strong>Do 2 free jobs for people you know.</strong> Your cousin's business, a campus
+      society, your friend's small shop. Free, but on two conditions: you can show the work publicly,
+      and they write you two lines of feedback.</li>
+    </ul>
+    <p><strong>Two free jobs. Not ten.</strong> Free work is a portfolio tactic with a stopping point,
+    not a business model.</p>
+
+    <h3>Use AI, but do not let it do the thinking</h3>
+    <p>AI is good for first drafts, mockup copy, and getting unstuck. What clients pay for is your
+    judgement about what to keep. If the work looks like it came straight out of a generator, it is
+    not portfolio work.</p>
+
+    <h3>Three strong pieces beats ten weak ones</h3>
+    <p>Nobody scrolls past the third piece. Pick your three best and cut the rest.</p>
+    <p>Put them somewhere you can send in one link. A Google Drive folder works. A simple Notion page
+    works. An Instagram page just for your work works, and is the most natural for Malaysian clients.
+    You do not need a website.</p>
+
+    {{IMG:portfolio-example.jpg|A portfolio that got replies}}
+
+    <p>[YOUR STORY: What was in your first portfolio? Was it real client work or things you made
+    yourself?]</p>
+  `,
+  task: "Make one piece today. Pick a real local business, redo one thing of theirs, and save the before and after."
+},
+
+/* ---------------- LEVEL 3 ---------------- */
+{
+  title: "Find clients and pitch",
+  mins: "4 min",
+  video: "",
+  body: `
+    <p>You will not be found. You have to go to them. The good news is that most small businesses
+    in Malaysia know their content is bad and have nobody to fix it.</p>
+
+    <h3>Where the clients are</h3>
+    <ul>
+      <li><strong>Small business accounts on Instagram.</strong> Cafes, salons, gyms, tuition centres,
+      home bakers. Look for the ones with a real business and bad posts. That gap is your pitch.</li>
+      <li><strong>Facebook business and freelance groups.</strong> People post jobs there daily. Read
+      the group rules before you post anything yourself.</li>
+      <li><strong>Your own campus.</strong> Societies, events, clubs. They all need posters and reels
+      and they have budgets.</li>
+      <li><strong>Agencies that need overflow.</strong> Small agencies pass work to freelancers when
+      they are busy. One agency can be worth ten one-off clients.</li>
+      <li><strong>Upwork and Fiverr for overseas clients.</strong> Slower to land, but they pay in USD.
+      One overseas client can be worth five local ones.</li>
+    </ul>
+
+    <h3>The message that gets replies</h3>
+    <p>Generic messages get ignored. The thing that works is showing you already did something.</p>
+    <div class="quote">Hi! I'm [your name], I do [skill] for small businesses.
+
+I saw your [specific thing: new menu / last few reels / opening post] and redesigned one as an
+example. No charge, just showing you what it could look like.
+
+[attach the work]
+
+If you like it, I charge RM[your price] for this. Happy to do one more so you can compare.</div>
+    <p><strong>Why this works:</strong> you have already done the work, so there is nothing for them
+    to decide except whether they like it. Most freelancers ask for a call. You are handing over
+    something finished.</p>
+
+    <h3>Expect to be ignored</h3>
+    <p>Send 10 a day for a week. You will get 1 or 2 replies. That is normal and it is not about you.
+    Business owners are busy and most messages they get are spam.</p>
+    <p><strong>Follow up once, after 4 days.</strong> One line. Then leave it.</p>
+    <div class="quote">Hi! Just checking if you saw this. No worries if not the right time.</div>
+
+    <p>[YOUR STORY: How did you get your first freelance client? How many people did you message
+    before someone said yes?]</p>
+  `,
+  task: "Pick 10 businesses. Make one free sample for the best one. Send all 10 messages today."
+},
+
+/* ---------------- LEVEL 4 ---------------- */
+{
+  title: "Get paid without getting burned",
+  mins: "5 min",
+  video: "",
+  body: `
+    <p>This is the level that saves you money. Every freelancer learns this the hard way, usually
+    after losing a few hundred ringgit.</p>
+
+    <h3>Always take 50% upfront</h3>
+    <p><strong>No deposit, no start.</strong> This is the single most important rule here.</p>
+    <p>It filters out people who were never going to pay, it means you are never working for free,
+    and a client who refuses a deposit is telling you something important about how the rest of the
+    job will go.</p>
+    <div class="quote">I take 50% to start and 50% when you get the final files. I'll send the invoice now
+and start once it comes through.</div>
+    <p>Say it as normal business, because it is. Nobody is offended by it.</p>
+
+    <h3>Write down what is included</h3>
+    <p>Before you start, send a short message listing exactly what they get. Not a contract. Four lines.</p>
+    <div class="quote">Just to confirm what we agreed:
+
+- 5 Instagram posts, square format
+- 2 rounds of changes included
+- Final files by [date]
+- RM[price] total, 50% now and 50% on delivery
+
+Anything extra after that is RM[amount] per post. Shall I start?</div>
+    <p><strong>Two rounds of changes.</strong> Say the number out loud at the start. Without a number,
+    changes never end.</p>
+
+    {{IMG:scope-message-example.jpg|The message I send before starting}}
+
+    <h3>When they ask for more than agreed</h3>
+    <p>This is called scope creep and it is how freelancers end up earning RM5 an hour. It never
+    arrives as a big request. It arrives as "can you just also...".</p>
+    <p>Do not argue and do not just do it. Say yes with a price:</p>
+    <div class="quote">Happy to do that. It's outside what we agreed, so it would be an extra RM[amount].
+Want me to go ahead?</div>
+    <p>Most clients say yes. Some say no and drop it. Either way you stopped working for free, and
+    you did it without being difficult.</p>
+
+    <h3>Never send final files before final payment</h3>
+    <p>Send a watermarked version, a low resolution version, or a screenshot. Send the real files when
+    the money arrives. This is normal practice everywhere and no reasonable client will be surprised.</p>
+
+    <h3>Keep a record of everything</h3>
+    <p>One note or one sheet: client, what you agreed, price, deposit paid, final paid, date delivered.
+    When someone says "I thought that was included", you can check instead of guessing.</p>
+
+    {{IMG:invoice-example.jpg|A simple invoice}}
+
+    <p>[YOUR STORY: Did a client ever ghost you, underpay you, or keep asking for changes? What
+    happened and what do you do differently now?]</p>
+  `,
+  task: "Write your deposit rule and your revision limit in one message. Save it on your phone so you can paste it into every new job."
+},
+
+/* ---------------- LEVEL 5 ---------------- */
+{
+  title: "From one job to repeat clients",
+  mins: "3 min",
+  video: "",
+  body: `
+    <p>One-off jobs are a treadmill. You finish, you get paid, and you are back to zero looking for
+    the next one. The money is in the same client paying you every month.</p>
+
+    <h3>Turn a one-off into a monthly rate</h3>
+    <p>After you deliver something they liked, do not wait for them to come back. Offer the monthly
+    version:</p>
+    <div class="quote">Glad you liked these. If it's useful, I can do 8 posts a month for RM[amount]
+instead of one at a time. Works out cheaper for you and I get to know your brand properly.</div>
+    <p><strong>One retainer client beats five one-off jobs.</strong> Same money, a fraction of the
+    chasing, and you stop starting from nothing every month.</p>
+
+    <h3>Ask for two things at delivery</h3>
+    <p>The moment you hand over work they are happy with is the only moment they will definitely
+    reply. Use it:</p>
+    <ul>
+      <li><strong>A testimonial.</strong> Two lines. It goes straight into your portfolio.</li>
+      <li><strong>A referral.</strong> "If you know anyone who needs this, I have space for one more
+      client this month."</li>
+    </ul>
+    <p>Ask a week later and they have moved on. Ask at delivery.</p>
+
+    <h3>Raise your rates for new clients only</h3>
+    <p>Every 3 to 4 clients, put your price up. Existing clients keep the old rate until you are busy
+    enough that it stops making sense. Nobody feels cheated and you never have an awkward conversation.</p>
+
+    <h3>Drop your worst client once you have four</h3>
+    <p>There is always one who pays the least and asks the most. Once you have four clients, let that
+    one go. Your hourly rate goes up and your week gets easier.</p>
+
+    <p>[YOUR STORY: How long until you had steady freelance income? What actually changed?]</p>
+  `,
+  task: "Message your last client with the monthly offer, or if you have no clients yet, write the message now and save it for when you do."
+}
+
+];
+
+/* ==========================================================================
+   Below here is the code that makes it work. You should not need to change it.
+   ========================================================================== */
+
+var RKEY='sh_freelance_rates';
+
+function researchHTML(){
+  var rows='';
+  for(var i=0;i<5;i++){
+    rows+='<div class="row"><input type="text" id="r_w'+i+'" placeholder="Where you found them"> '+
+          '<input type="number" id="r_p'+i+'" placeholder="RM" min="0"></div>';
+  }
+  return '<div class="rs"><h4>Your rate research</h4>'+
+    '<p class="sub">Find 5 people doing the work you want to do. Write down where you found them and '+
+    'what they charge for one job. Compare like for like.</p>'+
+    '<div class="hdr"><span>Where you found them</span><span>Their price</span></div>'+
+    rows+
+    '<button class="btn" onclick="runResearch()">Work out my starting price</button>'+
+    '<div class="rsout" id="rsOut"></div></div>';
+}
+
+function runResearch(){
+  var prices=[],where=[];
+  for(var i=0;i<5;i++){
+    var p=parseFloat(document.getElementById('r_p'+i).value);
+    if(!isNaN(p)&&p>0){prices.push(p);where.push(document.getElementById('r_w'+i).value.trim());}
+  }
+  if(prices.length<3){alert('Add at least 3 prices. The fewer you have, the worse the guess.');return;}
+  try{localStorage.setItem(RKEY,JSON.stringify({p:prices,w:where}));}catch(e){}
+  showResearch(prices);
+}
+
+function showResearch(prices){
+  var out=document.getElementById('rsOut'); if(!out)return;
+  var sorted=prices.slice().sort(function(a,b){return a-b;});
+  var mid=sorted.length%2 ? sorted[(sorted.length-1)/2]
+        : (sorted[sorted.length/2-1]+sorted[sorted.length/2])/2;
+  var lo=sorted[0], hi=sorted[sorted.length-1];
+  var start=Math.max(10,Math.round(mid*0.8/5)*5);
+  var next=Math.round(mid/5)*5;
+
+  out.innerHTML=
+    '<div class="rs-hero"><div class="rs-lab">Your starting price</div>'+
+    '<div class="rs-num">RM'+start+'</div>'+
+    '<div class="rs-sub">Per job, based on the '+prices.length+' prices you found</div></div>'+
+    '<div class="rs-bars">'+
+    '<div><div class="n">RM'+Math.round(lo)+'</div><div class="l">Lowest you found</div></div>'+
+    '<div><div class="n">RM'+Math.round(mid)+'</div><div class="l">Middle</div></div>'+
+    '<div><div class="n">RM'+Math.round(hi)+'</div><div class="l">Highest you found</div></div></div>'+
+    '<div class="rs-note">'+
+    '<p><strong>Why 20% under the middle.</strong> You are new and you have no reviews yet. A slightly '+
+    'lower price is the easiest reason for someone to take a chance on you. It is not a discount on '+
+    'your worth, it is a way in.</p>'+
+    '<p><strong>Raise it to RM'+next+' after 3 paying clients.</strong> By then you have real work to '+
+    'show and two testimonials. Charge new clients the higher rate and leave your old ones where they are.</p>'+
+    '<p><strong>Redo this every 6 months.</strong> Prices move, and so does your skill. Five minutes, '+
+    'twice a year, is how you stop getting stuck on your first ever rate.</p>'+
+    '<p><strong>If your numbers are far apart</strong>, you compared different things. A logo is not a '+
+    'poster. A month of posts is not one post. Check you compared like for like and redo it.</p></div>';
+  out.classList.add('show');
+}
+
+function imgHTML(_m,file,cap){
+  return '<div class="exbox">'+
+    '<img src="'+file+'" alt="'+cap+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">'+
+    '<div class="ph" style="display:none">Image coming soon</div>'+
+    (cap?'<div class="cap">'+cap+'</div>':'')+'</div>';
+}
+
+function copyPrompt(btn){
+  var el=btn.previousElementSibling; if(!el)return;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(el.innerText).then(function(){
+      btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy this prompt';},1600);});
+  }
+}
+
+var KEY='sh_freelance_progress';
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}}
+function save(a){try{localStorage.setItem(KEY,JSON.stringify(a))}catch(e){}}
+var done=load();
+
+function build(){
+  var box=document.getElementById('levels');box.innerHTML='';
+  COURSE.forEach(function(L,i){
+    var isDone=done.indexOf(i)>-1, unlocked=(i===0)||done.indexOf(i-1)>-1||isDone;
+    var el=document.createElement('div');
+    el.className='lvl'+(isDone?' done':'')+(unlocked?'':' locked');el.id='lvl'+i;
+    var vid=L.video
+      ? '<div class="vid"><iframe src="'+L.video+'" title="'+L.title+'" allowfullscreen loading="lazy"></iframe></div>'
+      : '<div class="vid"><div class="vid-icon"><svg width="15" height="17" viewBox="0 0 20 22" fill="none"><path d="M19 11L1 21.39V0.61L19 11Z" fill="white"/></svg></div><p>Video coming soon</p></div>';
+    var body=L.body.replace('{{RESEARCH}}',researchHTML())
+                   .replace(/\{\{IMG:([^|}]+)\|([^}]*)\}\}/g,imgHTML);
+    el.innerHTML='<button class="lvl-head"'+(unlocked?' onclick="toggle('+i+')"':' disabled')+'>'+
+      '<span class="lvl-badge">'+(isDone?'\u2713':(unlocked?(i+1):'\u{1F512}'))+'</span>'+
+      '<span class="lvl-t"><h2>'+L.title+'</h2><span class="lvl-meta">'+
+      (unlocked?('Level '+(i+1)+' \u00B7 '+L.mins):'Finish level '+i+' to open')+'</span></span>'+
+      (unlocked?'<span class="chev">\u203A</span>':'')+'</button>'+
+      '<div class="lvl-body">'+vid+body+
+      '<div class="todo"><div class="t-lab">Do this before the next level</div><p>'+L.task+'</p></div>'+
+      '<button class="btn mark" onclick="mark('+i+')">'+(isDone?'Done \u2713':'Mark as done')+'</button>'+
+      (isDone?'':'<button class="skip" onclick="mark('+i+')">Already know this? Skip ahead</button>')+'</div>';
+    box.appendChild(el);
+  });
+  restoreResearch();dots();prog();
+  document.getElementById('fin').classList.toggle('show',done.length>=COURSE.length);
+}
+function restoreResearch(){
+  if(!document.getElementById('r_p0'))return;
+  try{
+    var d=JSON.parse(localStorage.getItem(RKEY));if(!d||!d.p)return;
+    d.p.forEach(function(v,i){var e=document.getElementById('r_p'+i);if(e)e.value=v;});
+    (d.w||[]).forEach(function(v,i){var e=document.getElementById('r_w'+i);if(e)e.value=v;});
+    showResearch(d.p);
+  }catch(e){}
+}
+function dots(){var c=document.getElementById('dots');c.innerHTML='';
+  COURSE.forEach(function(_,i){var s=document.createElement('span');
+    s.className='dot'+(done.indexOf(i)>-1?' done':(i===done.length?' now':''));c.appendChild(s);});}
+function prog(){document.getElementById('navProg').textContent=
+  done.length>=COURSE.length?'All levels done':('Level '+Math.min(done.length+1,COURSE.length)+' of '+COURSE.length);}
+function toggle(i){var el=document.getElementById('lvl'+i);if(!el)return;
+  document.querySelectorAll('.lvl').forEach(function(x){if(x!==el)x.classList.remove('open')});
+  el.classList.toggle('open');
+  if(el.classList.contains('open'))el.scrollIntoView({behavior:'smooth',block:'start'});}
+function mark(i){if(done.indexOf(i)===-1){done.push(i);save(done);}build();
+  var n=i+1;setTimeout(function(){
+    if(n<COURSE.length)toggle(n);
+    else document.getElementById('fin').scrollIntoView({behavior:'smooth'});},120);}
+function resetAll(){done=[];save(done);
+  try{localStorage.removeItem(RKEY);}catch(e){}
+  build();window.scrollTo({top:0,behavior:'smooth'});}
+
+build();
+if(done.length>0&&done.length<COURSE.length)toggle(done.length);
+</script>
+</body>
+</html>

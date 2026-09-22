@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What should you actually do? — The Side Hustle Hub</title>
+<meta name="description" content="Answer 7 questions. Find out what is actually holding your money back, and which kind of side hustle fits your time, skills and life as a Malaysian student.">
+<meta property="og:title" content="Side Hustle Analyser">
+<meta property="og:description" content="7 soalan. Cari tahu side hustle mana paling sesuai untuk anda.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#B8962E;--gold-light:#D4AF50;--gold-bright:#E8C96A;
+    --white:#FFF;--off-white:#FDFBF6;--cream:#F9F4E8;--warm-grey:#F2EDE0;
+    --text-dark:#1A1510;--text-mid:#4A4035;--text-muted:#8A7A65;--text-light:#B8A990;
+    --border:rgba(184,150,46,.18);--border-mid:rgba(184,150,46,.35);
+    --shadow-lg:0 16px 64px rgba(184,150,46,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--off-white);color:var(--text-dark);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;
+      justify-content:space-between;align-items:center;background:rgba(253,251,246,.94);
+      backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
+            text-transform:uppercase;color:var(--gold);text-decoration:none}
+  .nav-back{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+            color:var(--text-muted);text-decoration:none}
+  .nav-back:hover{color:var(--gold)}
+
+  .stage{min-height:100vh;padding:118px 22px 70px;display:flex;align-items:flex-start;justify-content:center}
+  .card{max-width:620px;width:100%}
+
+  .eyebrow{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;
+           text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.4vw,54px);font-weight:600;
+     line-height:1.04;margin-bottom:14px}
+  h1 em{font-style:italic;color:var(--gold)}
+  .bm{color:var(--text-muted);font-size:15px;line-height:1.65}
+  .lede{font-size:17px;line-height:1.75;color:var(--text-mid);font-weight:400;margin-bottom:8px}
+
+  .prog{display:flex;gap:5px;margin-bottom:28px}
+  .prog span{flex:1;height:3px;background:var(--warm-grey)}
+  .prog span.on{background:var(--gold)}
+
+  .step{display:none}
+  .step.active{display:block;animation:fade .3s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+  .qn{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;
+      text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .qt{font-family:'Cormorant Garamond',serif;font-size:31px;font-weight:600;line-height:1.12;margin-bottom:5px}
+  .qbm{color:var(--text-muted);font-size:16px;margin-bottom:8px;line-height:1.5}
+  .qh{font-size:13.5px;color:var(--text-muted);margin-bottom:22px;letter-spacing:.2px}
+
+  .opts{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+  .opt{background:var(--white);border:1px solid var(--border);padding:17px 19px;cursor:pointer;
+       text-align:left;transition:.16s;font-family:'DM Sans',sans-serif;border-radius:1px;
+       display:flex;gap:13px;align-items:flex-start}
+  .opt:hover{border-color:var(--border-mid);background:var(--cream)}
+  .opt.sel{border-color:var(--gold);background:var(--cream);box-shadow:inset 3px 0 0 var(--gold)}
+  .opt .ic{font-size:20px;line-height:1.2;flex-shrink:0}
+  .opt .tx{flex:1}
+  .opt .en{font-size:16px;color:var(--text-dark);font-weight:500;line-height:1.4}
+  .opt .my{font-size:14px;color:var(--text-muted);margin-top:4px;line-height:1.45}
+  .opt .box{width:17px;height:17px;border:1px solid var(--border-mid);flex-shrink:0;margin-top:2px;
+            display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff}
+  .opt.sel .box{background:var(--gold);border-color:var(--gold)}
+
+  select{width:100%;padding:15px 16px;border:1px solid var(--border-mid);background:var(--white);
+         font-family:'DM Sans',sans-serif;font-size:15.5px;color:var(--text-dark);
+         border-radius:1px;margin-bottom:14px;cursor:pointer}
+  select:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .flab{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:1.5px;
+        text-transform:uppercase;color:var(--text-mid);margin-bottom:7px;display:block}
+
+  .row{display:flex;gap:11px;align-items:center;flex-wrap:wrap}
+  .btn{background:var(--gold);color:#fff;border:none;cursor:pointer;padding:15px 34px;
+       font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;
+       text-transform:uppercase;transition:.25s;display:inline-block;text-decoration:none}
+  .btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+  .btn:disabled{background:var(--warm-grey);color:var(--text-light);cursor:not-allowed;transform:none}
+  .btn.ghost{background:none;border:1px solid var(--border-mid);color:var(--text-muted)}
+  .btn.ghost:hover{background:var(--cream);color:var(--gold);transform:none}
+
+  /* ---- results ---- */
+  .diag{background:var(--text-dark);color:#fff;padding:30px 28px;position:relative;overflow:hidden}
+  .diag::before{content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 70% at 50% 40%,rgba(184,150,46,.18) 0,transparent 70%)}
+  .diag>*{position:relative;z-index:2}
+  .diag .lab{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:2.5px;
+             text-transform:uppercase;color:var(--gold-bright);margin-bottom:12px}
+  .diag h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;line-height:1.15;margin-bottom:10px}
+  .diag h2 em{font-style:italic;color:var(--gold-bright)}
+  .diag p{font-size:15.5px;line-height:1.8;color:rgba(255,255,255,.82)}
+  .diag .bmw{font-size:14px;color:rgba(255,255,255,.6);margin-top:10px;line-height:1.6}
+
+  .warn{background:var(--cream);border:1px solid var(--border-mid);border-left:3px solid var(--gold);
+        padding:20px 22px;margin-top:2px}
+  .warn p{font-size:15px;line-height:1.75;color:var(--text-mid)}
+  .warn a{color:var(--gold);font-weight:600}
+
+  .sec{margin-top:34px}
+  .sech{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;margin-bottom:4px}
+  .sech em{font-style:italic;color:var(--gold)}
+  .secbm{font-size:14px;color:var(--text-muted);margin-bottom:18px}
+
+  .chartwrap{background:var(--white);border:1px solid var(--border);padding:18px 14px 10px}
+  .chartwrap svg{width:100%;height:auto;display:block}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:12px;
+          font-size:11px;color:var(--text-muted)}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gold);margin-right:5px}
+
+  .pick{background:var(--white);border:1px solid var(--border);padding:24px 26px;margin-bottom:2px}
+  .pick.top{border-color:var(--gold);border-left:3px solid var(--gold);background:var(--cream)}
+  .pick .rank{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:2px;
+              text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .pick h3{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;line-height:1.2}
+  .pick .h3bm{font-size:14px;color:var(--text-muted);margin-top:3px;margin-bottom:12px}
+  .pick .why{font-size:15.5px;line-height:1.8;color:var(--text-mid);margin-bottom:16px}
+  .pick .exs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+  .pick .ex{background:var(--white);border:1px solid var(--border-mid);font-size:13px;
+            padding:6px 12px;border-radius:20px;color:var(--text-mid)}
+  .pick.top .ex{background:var(--off-white)}
+  .stats{display:flex;gap:0;border:1px solid var(--border);background:var(--white)}
+  .stats div{flex:1;padding:13px 8px;text-align:center;border-right:1px solid var(--border)}
+  .stats div:last-child{border-right:none}
+  .stats .n{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--gold)}
+  .stats .l{font-family:'Space Mono',monospace;font-size:7.5px;letter-spacing:1px;
+            text-transform:uppercase;color:var(--text-muted);margin-top:4px}
+
+  .nextstep{background:var(--text-dark);color:#fff;padding:34px 28px;text-align:center;margin-top:34px;
+            position:relative;overflow:hidden}
+  .nextstep::before{content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(184,150,46,.14) 0,transparent 70%)}
+  .nextstep>*{position:relative;z-index:2}
+  .nextstep h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin-bottom:10px}
+  .nextstep h3 em{font-style:italic;color:var(--gold-bright)}
+  .nextstep p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.6);max-width:420px;margin:0 auto 6px}
+
+  .again{text-align:center;margin-top:24px}
+  .again button{background:none;border:none;color:var(--text-light);font-size:12px;cursor:pointer;
+                text-decoration:underline;font-family:'DM Sans',sans-serif}
+  .again button:hover{color:var(--gold)}
+
+  .getlist{list-style:none;margin-bottom:26px;display:flex;flex-direction:column;gap:9px}
+  .getlist li{font-size:14.5px;line-height:1.6;color:var(--text-mid);display:flex;gap:11px}
+  .getlist li::before{content:'✦';color:var(--gold);font-size:8px;margin-top:6px;flex-shrink:0}
+
+  .stage{min-height:auto}
+  section.blk{padding:80px 22px}
+  .wrapx{max-width:880px;margin:0 auto}
+  .sec-head{text-align:center;margin-bottom:42px}
+  .sec-head .eyebrow{margin-bottom:14px}
+  .sec-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(29px,3.7vw,42px);
+               font-weight:600;line-height:1.12}
+  .sec-head h2 em{font-style:italic;color:var(--gold)}
+  .sec-head p{font-size:15px;line-height:1.75;color:var(--text-muted);max-width:500px;margin:13px auto 0}
+
+  .reviews{background:var(--cream);border-top:1px solid var(--border)}
+  .dm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .dm{background:var(--white);border:1px solid var(--border);padding:12px;transition:.25s;
+      display:flex;flex-direction:column}
+  .dm:hover{border-color:var(--border-mid);box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+  .dm img{width:100%;display:block;border:1px solid var(--border)}
+  .dm .slot{background:var(--off-white);border:1px dashed var(--border-mid);aspect-ratio:9/14;
+            display:flex;flex-direction:column;align-items:center;justify-content:center;
+            text-align:center;padding:20px;gap:8px}
+  .dm .slot .ic{font-size:22px;opacity:.5}
+  .dm .slot span{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.5px;
+                 text-transform:uppercase;color:var(--text-light);line-height:1.7}
+  .dm .cap{font-size:12.5px;color:var(--text-muted);margin-top:11px;text-align:center;line-height:1.5}
+  .rev-note{text-align:center;margin-top:28px;font-size:12.5px;color:var(--text-light)}
+
+  .callblk{background:var(--text-dark);color:#fff;position:relative;overflow:hidden}
+  .callblk::before{content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(184,150,46,.13) 0,transparent 70%)}
+  .callblk .wrapx{position:relative;z-index:2}
+  .callblk .eyebrow{color:var(--gold-bright);text-align:center}
+  .callblk .sec-head h2{color:#fff}
+  .callblk .sec-head h2 em{color:var(--gold-bright)}
+  .callblk .sec-head p{color:rgba(255,255,255,.62)}
+  .cpanel{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);
+          display:grid;grid-template-columns:1.5fr 1fr}
+  .clist{padding:34px 36px;border-right:1px solid rgba(255,255,255,.16)}
+  .clist ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+  .clist li{font-size:14.5px;color:rgba(255,255,255,.82);display:flex;gap:13px;line-height:1.6}
+  .clist li::before{content:'✦';color:var(--gold-bright);font-size:9px;margin-top:5px;flex-shrink:0}
+  .cbuy{padding:34px;display:flex;flex-direction:column;justify-content:center;text-align:center}
+  .cprice{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:600;
+          color:var(--gold-bright);line-height:1}
+  .cprice span{display:block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
+               text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:10px}
+  .cbuy .btn{margin-top:22px}
+  .cn{margin-top:14px;font-size:11.5px;color:rgba(255,255,255,.35)}
+
+  footer{background:var(--cream);border-top:1px solid var(--border);padding:42px 22px;text-align:center}
+  .f-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
+          text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .f-div{width:40px;height:1px;background:var(--border-mid);margin:0 auto 18px}
+  .f-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+  .f-links a{font-size:11px;color:var(--text-muted);text-decoration:none;
+             letter-spacing:1.5px;text-transform:uppercase}
+  .f-links a:hover{color:var(--gold)}
+  .f-copy{font-size:11px;color:var(--text-light)}
+
+  @media(max-width:780px){
+    section.blk{padding:56px 18px}
+    .dm-grid{grid-template-columns:1fr;max-width:330px;margin:0 auto}
+    .cpanel{grid-template-columns:1fr}
+    .clist{border-right:none;border-bottom:1px solid rgba(255,255,255,.16);padding:26px 20px}
+    .cbuy{padding:26px 20px}
+  }
+
+  a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+  @media(max-width:620px){
+    nav{padding:14px 18px}.nav-logo{font-size:8.5px;letter-spacing:2px}
+    .stage{padding:100px 16px 50px}
+    .qt{font-size:26px}
+    .btn{width:100%;text-align:center}
+    .row .btn{width:100%}
+    .stats{flex-direction:column}
+    .stats div{border-right:none;border-bottom:1px solid var(--border)}
+    .stats div:last-child{border-bottom:none}
+    .diag,.pick,.nextstep{padding:22px 18px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  <a class="nav-back" href="index.html#products">&larr; All free resources</a>
+</nav>
+
+<div class="stage">
+<div class="card">
+
+  <div class="step active" id="s0">
+    <div class="eyebrow">Free &middot; 7 Questions</div>
+    <h1>Which side hustle <em>fits you?</em></h1>
+    <p class="lede">7 questions. 2 minutes. No signup.</p>
+    <p class="bm" style="margin-bottom:22px">7 soalan. 2 minit. Tak perlu daftar.</p>
+    <ul class="getlist">
+      <li>Whether you need to earn more, or plug a leak first</li>
+      <li>Which kind of work fits your time, skills and life</li>
+      <li>A chart of every option: best fit against fastest money</li>
+      <li>Your top 3, with real Malaysian examples for each</li>
+      <li>Honest monthly income for the hours you actually have</li>
+    </ul>
+    <button class="btn" onclick="go(1)">Start &middot; Mula</button>
+  </div>
+
+  <div class="step" id="s1"></div>
+  <div class="step" id="s2"></div>
+  <div class="step" id="s3"></div>
+  <div class="step" id="s4"></div>
+  <div class="step" id="s5"></div>
+  <div class="step" id="s6"></div>
+  <div class="step" id="s7"></div>
+  <div class="step" id="s8"></div>
+
+</div>
+</div>
+
+<section class="blk reviews">
+  <div class="wrapx">
+    <div class="sec-head">
+      <div class="eyebrow">Real Messages</div>
+      <h2>What people <em>actually said.</em></h2>
+      <p>Straight from my DMs. No edits.</p>
+    </div>
+    <div class="dm-grid">
+      <div class="dm">
+        <img src="analyser-dm-1.png" alt="On getting the result" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="slot" style="display:none"><span class="ic">💬</span><span>Paste your<br/>DM screenshot<br/>as analyser-dm-1.png</span></div>
+        <div class="cap">On getting the result</div>
+      </div>
+      <div class="dm">
+        <img src="analyser-dm-2.png" alt="On starting that week" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="slot" style="display:none"><span class="ic">💬</span><span>Paste your<br/>DM screenshot<br/>as analyser-dm-2.png</span></div>
+        <div class="cap">On starting that week</div>
+      </div>
+      <div class="dm">
+        <img src="analyser-dm-3.png" alt="On the first payment" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="slot" style="display:none"><span class="ic">💬</span><span>Paste your<br/>DM screenshot<br/>as analyser-dm-3.png</span></div>
+        <div class="cap">On the first payment</div>
+      </div>
+    </div>
+    <p class="rev-note">These are real messages from students who used this.</p>
+  </div>
+</section>
+
+<section class="blk callblk">
+  <div class="wrapx">
+    <div class="eyebrow">Want Help Applying It?</div>
+    <div class="sec-head">
+      <h2>Book a <em>1-on-1 call</em> with me.</h2>
+      <p>The analyser points you in one direction. A call is where we pressure-test whether it fits
+      your timetable, and build the first month out properly so you do not stall after week one.</p>
+    </div>
+    <div class="cpanel">
+      <div class="clist">
+        <ul>
+          <li>45 minutes, one-to-one, on video</li>
+          <li>We stress-test your result against your real timetable and commitments</li>
+          <li>We work through your actual numbers, not general advice</li>
+          <li>You leave with a written plan and a first action to take this week</li>
+          <li>Pay after you book — no payment needed to hold the slot</li>
+        </ul>
+      </div>
+      <div class="cbuy">
+        <div class="cprice">RM100<span>Per session</span></div>
+        <a class="btn" href="REPLACE_WITH_YOUR_CALENDLY_LINK">Book a Call</a>
+        <p class="cn">Limited slots — I'm still in med school</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">Syaarveeni &times; The Side Hustle Hub</div>
+  <div class="f-div"></div>
+  <div class="f-links">
+    <a href="index.html#story">My Story</a>
+    <a href="index.html#products">Free Resources</a>
+    <a href="https://instagram.com/syaaarveeni">Instagram</a>
+    <a href="https://linkedin.com/in/syaar307">LinkedIn</a>
+  </div>
+  <p class="f-copy">&copy; 2026 Syaarveeni &middot; The Side Hustle Hub &middot; All rights reserved.</p>
+</footer>
+
+<script>
+var A={have:[],good:[],open:[]};
+
+/* ---------------- QUESTIONS ---------------- */
+var Q=[
+{k:'pain',n:1,t:"Where does it hurt most?",bm:"Apa masalah sebenar?",h:"Pick one",
+ o:[['short','💸',"I don't earn enough","Duit masuk tak cukup"],
+    ['leak','🕳️',"Money disappears","Duit hilang entah ke mana"],
+    ['both','😮‍💨',"Both","Dua-dua"],
+    ['unsure','🤔',"Not sure","Tak pasti"]]},
+
+{k:'goal',n:2,t:"How much more do you need a month?",bm:"Berapa lagi anda perlu sebulan?",h:"Be realistic, not hopeful",
+ o:[['300','☕',"About RM300","Dalam RM300"],
+    ['500','🍜',"About RM500","Dalam RM500"],
+    ['1000','🏠',"About RM1,000","Dalam RM1,000"],
+    ['1500','🚀',"RM1,500 or more","RM1,500 ke atas"]]},
+
+{k:'time',n:3,t:"How much time do you have?",bm:"Berapa banyak masa anda ada?",h:"Two answers",dual:true},
+
+{k:'have',n:4,t:"What do you have?",bm:"Apa yang anda ada?",h:"Select all that apply &middot; Pilih semua yang berkenaan",multi:true,
+ o:[['laptop','💻',"A laptop","Laptop"],
+    ['camera','📱',"A phone with a good camera","Telefon dengan kamera bagus"],
+    ['transport','🛵',"Own transport","Kenderaan sendiri"],
+    ['quiet','🚪',"A quiet space to work","Tempat senyap untuk kerja"],
+    ['adult','🪪',"I am 18 or older","Umur 18 ke atas"]]},
+
+{k:'good',n:5,t:"What do people ask you for help with?",bm:"Orang selalu minta tolong anda buat apa?",h:"Select all that apply &middot; Pilih semua yang berkenaan",multi:true,
+ o:[['explain','🧠',"Explaining things","Menerangkan sesuatu"],
+    ['write','✍️',"Writing","Menulis"],
+    ['design','🎨',"Design or Canva","Design atau Canva"],
+    ['video','🎬',"Editing videos","Edit video"],
+    ['photo','📸',"Taking photos","Ambil gambar"],
+    ['code','⌨️',"Coding or spreadsheets","Coding atau spreadsheet"],
+    ['lang','🌏',"Languages, BM and English","Bahasa, BM dan English"],
+    ['talk','🗣️',"Talking to people, selling","Bercakap, menjual"],
+    ['organise','🗂️',"Organising, admin","Menyusun, admin"],
+    ['cook','🧁',"Cooking or baking","Memasak atau baking"],
+    ['ai','🤖',"Using AI tools","Guna alat AI"]]},
+
+{k:'open',n:6,t:"What kind of work are you open to?",bm:"Kerja jenis apa anda sanggup buat?",h:"Being good at it is not the same as wanting to do it",multi:true,
+ o:[['teach','📚',"Teaching, tutoring","Mengajar, tuisyen"],
+    ['create','🎨',"Creative work: design, video","Kerja kreatif: design, video"],
+    ['content','📲',"Content for brands, social media","Kandungan untuk jenama, media sosial"],
+    ['words','📝',"Writing, translation","Penulisan, terjemahan"],
+    ['sell','🛍️',"Selling products online","Jual barang online"],
+    ['admin','🗃️',"Online admin tasks","Kerja admin online"],
+    ['shift','🕐',"Shifts, events, delivery","Kerja shift, event, penghantaran"],
+    ['aiwork','🤖',"AI-assisted work","Kerja dengan bantuan AI"],
+    ['remote','🌍',"Remote work for overseas clients","Kerja jauh untuk klien luar negara"],
+    ['intern','🎓',"Internship or campus job","Internship atau kerja kampus"]]},
+
+{k:'block',n:7,t:"What is stopping you?",bm:"Apa yang menghalang anda?",h:"Pick the biggest one",
+ o:[['time','⏳',"No time","Tiada masa"],
+    ['start','🧭',"I don't know where to start","Tak tahu nak mula"],
+    ['money','🪙',"No money to start","Tiada modal"],
+    ['confidence','😬',"Not confident enough","Tak cukup yakin"],
+    ['failed','📭',"I tried and got no replies","Dah cuba, tiada balasan"]]}
+];
+
+/* ---------------- CATEGORIES ---------------- */
+var CATS=[
+{k:'teach',short:"Teaching",n:"Teaching & explaining",bm:"Mengajar & menerangkan",
+ skills:['explain','lang'],res:[],time:['evening','weekend'],days:10,inc:[600,1500],
+ ex:["Tuition for SPM or PT3","Peer tutoring your juniors","Lab demonstrator or faculty tutor","Selling your notes"],
+ note:"Fastest way to earn from something you already know."},
+{k:'create',short:"Creative",n:"Creative & editing work",bm:"Kerja kreatif & editing",
+ skills:['design','video'],res:['laptop'],time:['scatter','flex','evening'],days:14,inc:[400,1300],
+ ex:["Short-form video editing","AI-assisted editing and captions","Canva posters and social graphics"],
+ note:"Pays per project, so you work around your timetable."},
+{k:'content',short:"Content",n:"Content & brand work",bm:"Kandungan & jenama",
+ skills:['video','photo','talk'],res:['camera'],time:['scatter','flex','weekend'],days:21,inc:[300,1200],
+ ex:["UGC videos for brands","Running IG or TikTok for a small business","Product photos"],
+ note:"Slowest to start, but it compounds once brands know you."},
+{k:'words',short:"Writing",n:"Writing & languages",bm:"Penulisan & bahasa",
+ skills:['write','lang','explain'],res:['laptop'],time:['scatter','flex','evening'],days:12,inc:[300,900],
+ ex:["BM to English translation","AI-assisted copywriting you edit","Transcription and captions"],
+ note:"Being properly bilingual is a paid skill in Malaysia."},
+{k:'sell',short:"Selling",n:"Selling things",bm:"Jual barang",
+ skills:['talk','cook','photo'],res:['camera'],time:['flex','weekend','scatter'],days:7,inc:[200,1100],
+ ex:["Shopee or TikTok Shop reselling","Flipping preloved items","Home baking"],
+ note:"Quick to start, but you need a little money upfront."},
+{k:'admin',short:"Admin",n:"Admin & organising",bm:"Admin & pengurusan",
+ skills:['organise','code','write'],res:['laptop'],time:['scatter','flex','evening'],days:14,inc:[400,1000],
+ ex:["Virtual assistant","Data entry and AI-assisted admin","Event registration and coordination"],
+ note:"Boring, steady, and very easy to fit between classes."},
+{k:'aiwork',short:"AI work",n:"AI-assisted work",bm:"Kerja dengan bantuan AI",
+ skills:['ai','write','design'],res:['laptop'],time:['scatter','flex','evening'],days:12,inc:[350,1400],
+ ex:["AI-assisted content writing","Faceless short-form video channels","AI thumbnails and graphics","Simple automations for small businesses"],
+ note:"AI does the first draft. You get paid for fixing what it gets wrong, so judgement still matters."},
+{k:'shift',short:"Shifts",n:"Shifts, delivery & on-demand",bm:"Kerja shift & penghantaran",
+ skills:['talk'],res:[],time:['weekend','evening'],days:3,inc:[500,1400],
+ ex:["Grab or foodpanda delivery","Event crew and promoter","Brand ambassador","F&B and retail shifts"],
+ note:"Not really a hustle, but it is the fastest money if you need it this week. Grab and foodpanda need you to be 18 with a licence.",adult:true},
+
+{k:'remote',short:"Overseas",n:"Remote work for overseas clients",bm:"Kerja jauh untuk klien luar negara",
+ skills:['write','design','code'],res:['laptop','quiet'],time:['flex','evening','scatter'],days:30,inc:[800,2500],
+ ex:["Upwork or Fiverr for overseas clients","Remote internships with foreign startups","Virtual assistant for overseas businesses","Design or writing paid in USD"],
+ note:"Slowest to land, best paid. You earn in USD or SGD and spend in ringgit, so one client can be worth five local ones."},
+
+{k:'intern',short:"Intern",n:"Internship or campus job",bm:"Internship atau kerja kampus",
+ skills:['organise','write'],res:[],time:['flex'],days:30,inc:[500,1200],
+ ex:["Paid internship during semester break","Part-time remote internship","Campus jobs: library, lab, student affairs","Research assistant for a lecturer"],
+ note:"Pays less per hour than anything else here. It is on the list because it goes on your CV and often turns into a real job offer."}
+];
+
+var HRS={u5:{m:.5,n:"under 5 hours"},h5:{m:1,n:"5 to 10 hours"},h10:{m:1.7,n:"10 to 20 hours"},h20:{m:2.4,n:"over 20 hours"}};
+
+/* ---------------- RENDER ---------------- */
+function bar(n){var h='<div class="prog">';for(var i=1;i<=7;i++)h+='<span class="'+(i<=n?'on':'')+'"></span>';return h+'</div>';}
+
+function render(qi){
+  var q=Q[qi],el=document.getElementById('s'+(qi+1));
+  var h=bar(q.n)+'<div class="qn">Question '+q.n+' of 7</div>'+
+        '<div class="qt">'+q.t+'</div><div class="qbm">'+q.bm+'</div>'+
+        (q.h?'<div class="qh">'+q.h+'</div>':'');
+
+  if(q.dual){
+    h+='<span class="flab">Hours free each week &middot; Jam kosong seminggu</span>'+
+       '<select id="f_hrs"><option value="">Choose... &middot; Pilih...</option>'+
+       '<option value="u5">Under 5 hours &middot; Kurang 5 jam</option>'+
+       '<option value="h5">5 to 10 hours &middot; 5 hingga 10 jam</option>'+
+       '<option value="h10">10 to 20 hours &middot; 10 hingga 20 jam</option>'+
+       '<option value="h20">Over 20 hours &middot; Lebih 20 jam</option></select>'+
+       '<span class="flab">When is that time? &middot; Bila masa itu?</span>'+
+       '<select id="f_when"><option value="">Choose... &middot; Pilih...</option>'+
+       '<option value="evening">Weekday evenings &middot; Petang hari biasa</option>'+
+       '<option value="weekend">Weekends only &middot; Hujung minggu sahaja</option>'+
+       '<option value="scatter">Gaps between classes &middot; Waktu kosong antara kelas</option>'+
+       '<option value="flex">Flexible &middot; Fleksibel</option></select>'+
+       '<div class="row"><button class="btn ghost" onclick="go('+qi+')">&larr; Back &middot; Kembali</button>'+
+       '<button class="btn" id="dn" disabled onclick="dualNext('+qi+')">Next &middot; Seterusnya</button></div>';
+  }else{
+    h+='<div class="opts">';
+    q.o.forEach(function(o){
+      h+='<button class="opt" data-v="'+o[0]+'" onclick="pick(this,'+qi+','+(q.multi?'true':'false')+')">'+
+         (q.multi?'<span class="box">&#10003;</span>':'<span class="ic">'+o[1]+'</span>')+
+         '<span class="tx"><span class="en">'+(q.multi?o[1]+' ':'')+o[2]+'</span>'+
+         '<span class="my">'+o[3]+'</span></span></button>';
+    });
+    h+='</div>';
+    if(q.multi){
+      h+='<div class="row"><button class="btn ghost" onclick="go('+qi+')">&larr; Back &middot; Kembali</button>'+
+         '<button class="btn" onclick="multiNext('+qi+')">Next &middot; Seterusnya</button></div>';
+    }else{
+      /* single-select advances on tap, but people still need a way back */
+      h+='<div class="row"><button class="btn ghost" onclick="go('+qi+')">&larr; Back &middot; Kembali</button></div>';
+    }
+  }
+  el.innerHTML=h;
+}
+Q.forEach(function(_,i){render(i);});
+
+function go(n){
+  document.querySelectorAll('.step').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('s'+n).classList.add('active');
+  /* restore any answer already given on this step */
+  if(n===3){
+    var fh=document.getElementById('f_hrs'), fw=document.getElementById('f_when');
+    if(fh&&A.hrs)fh.value=A.hrs; if(fw&&A.when)fw.value=A.when;
+    var dn=document.getElementById('dn'); if(dn)dn.disabled=!(A.hrs&&A.when);
+  }
+  if(n===0){window.scrollTo({top:0,behavior:'smooth'});}
+  else{var st=document.querySelector('.stage');
+       if(st)window.scrollTo({top:Math.max(0,st.offsetTop-70),behavior:'smooth'});}
+}
+function pick(btn,qi,multi){
+  var q=Q[qi];
+  if(multi){
+    btn.classList.toggle('sel');
+    A[q.k]=[].slice.call(btn.parentNode.querySelectorAll('.opt.sel')).map(function(b){return b.dataset.v;});
+  }else{
+    [].slice.call(btn.parentNode.children).forEach(function(b){b.classList.remove('sel')});
+    btn.classList.add('sel');
+    A[q.k]=btn.dataset.v;
+    setTimeout(function(){ qi===6?finish():go(qi+2); },170);
+  }
+}
+function multiNext(qi){ go(qi+2); }
+function dualNext(qi){
+  A.hrs=document.getElementById('f_hrs').value;
+  A.when=document.getElementById('f_when').value;
+  go(qi+2);
+}
+document.addEventListener('change',function(e){
+  if(e.target.id==='f_hrs'||e.target.id==='f_when'){
+    var a=document.getElementById('f_hrs').value,b=document.getElementById('f_when').value;
+    document.getElementById('dn').disabled=!(a&&b);
+  }
+});
+
+/* ---------------- SCORING ---------------- */
+function score(c){
+  var s=26;
+  /* appetite: what they said they are open to */
+  if(A.open.indexOf(c.k)>-1) s+=28; else if(A.open.length) s-=12;
+  /* capability: proportion of this category's skills they actually have,
+     so someone with 2 of 2 scores above someone with 2 of 3 */
+  var hit=c.skills.filter(function(k){return A.good.indexOf(k)>-1;}).length;
+  if(c.skills.length) s+=Math.round(24*(hit/c.skills.length));
+  /* resources */
+  var missing=c.res.filter(function(r){return A.have.indexOf(r)<0;}).length;
+  s+= missing?-22:8;
+  if(c.adult && A.have.indexOf('adult')<0) s-=30;
+  /* when their free hours fall */
+  if(A.when && c.time.indexOf(A.when)>-1) s+=9;
+  /* the thing blocking them changes what they should start with */
+  if(A.block==='money' && c.k==='sell') s-=14;
+  if(A.block==='confidence'){ if(c.k==='shift'||c.k==='admin') s+=6; if(c.k==='content') s-=8; }
+  if(A.block==='failed'  && c.days<=10) s+=6;
+  if(A.block==='time'    && c.days<=7)  s+=5;
+  if(A.block==='start'   && c.days<=10) s+=5;
+  if(A.hrs==='u5' && c.k==='teach') s+=5;
+  /* overseas work rewards English, and punishes needing money next week */
+  if(c.k==='remote'){ if(A.good.indexOf('lang')>-1) s+=6; if(A.block==='time') s-=6; if(A.goal==='1500') s+=6; }
+  /* an internship is a poor fit if they need money urgently or have few hours */
+  if(c.k==='intern'){ if(A.block==='money') s-=8; if(A.hrs==='u5') s-=8; if(A.goal==='300') s-=6; }
+  /* tiebreaks: when everything else is equal, favour the one that pays sooner
+     and the one with the higher ceiling. Kept as a float so the ordering is
+     always deterministic; only the displayed number is rounded. */
+  s += (10-c.days)*0.22;
+  s += (c.inc[1]/1000)*1.1;
+  return Math.max(3,Math.min(96,s));
+}
+function fitOf(c){return Math.round(score(c));}
+function income(c){
+  var m=(HRS[A.hrs]||HRS.h5).m;
+  return [Math.round(c.inc[0]*m/10)*10, Math.min(2500,Math.round(c.inc[1]*m/10)*10)];
+}
+
+/* ---------------- CHART ---------------- */
+function chart(rows){
+  var W=560,H=380,L=52,R=18,T=22,B=46, pw=W-L-R, ph=H-T-B;
+  var maxD=32;
+  function x(d){return L+pw*(1-Math.min(d,maxD)/maxD);}   // fast = right
+  function y(f){return T+ph*(1-f/100);}
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Chart of fit against speed to first money">';
+  s+='<rect x="'+L+'" y="'+T+'" width="'+pw+'" height="'+ph+'" fill="#FDFBF6" stroke="rgba(184,150,46,.18)"/>';
+  s+='<line x1="'+(L+pw/2)+'" y1="'+T+'" x2="'+(L+pw/2)+'" y2="'+(T+ph)+'" stroke="rgba(184,150,46,.22)" stroke-dasharray="3 3"/>';
+  s+='<line x1="'+L+'" y1="'+(T+ph/2)+'" x2="'+(L+pw)+'" y2="'+(T+ph/2)+'" stroke="rgba(184,150,46,.22)" stroke-dasharray="3 3"/>';
+  var qs=[[L+pw-8,T+14,'end','START HERE'],[L+8,T+14,'start','WORTH BUILDING'],
+          [L+pw-8,T+ph-8,'end','QUICK CASH'],[L+8,T+ph-8,'start','SKIP FOR NOW']];
+  qs.forEach(function(q){
+    s+='<text x="'+q[0]+'" y="'+q[1]+'" text-anchor="'+q[2]+'" font-family="Space Mono, monospace" font-size="8.5" letter-spacing="1.5" fill="#B8A990">'+q[3]+'</text>';
+  });
+  rows.forEach(function(r){
+    var inc=income(r.c), rad=7+Math.min(13,inc[1]/140);
+    var cx=x(r.c.days), cy=y(r.f), top=r.i<3;
+    s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+rad+'" fill="'+(top?'rgba(184,150,46,.85)':'rgba(184,150,46,.22)')+
+       '" stroke="'+(top?'#8a6f1f':'rgba(184,150,46,.5)')+'" stroke-width="1"/>';
+    if(top) s+='<text x="'+cx+'" y="'+(cy+3.5)+'" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#fff">'+(r.i+1)+'</text>';
+    var ly = (r.i%2===0) ? (cy-rad-6) : (cy+rad+11);
+    s+='<text x="'+cx+'" y="'+ly+'" text-anchor="middle" font-family="DM Sans" font-size="10" fill="'+(top?'#1A1510':'#8A7A65')+'">'+(r.c.short||r.c.n)+'</text>';
+  });
+  s+='<text x="'+L+'" y="'+(H-16)+'" font-family="Space Mono, monospace" font-size="8.5" fill="#8A7A65">SLOWER TO EARN</text>';
+  s+='<text x="'+(L+pw)+'" y="'+(H-16)+'" text-anchor="end" font-family="Space Mono, monospace" font-size="8.5" fill="#8A7A65">MONEY SOONER</text>';
+  s+='<text x="14" y="'+(T+10)+'" font-family="Space Mono, monospace" font-size="8.5" fill="#8A7A65">BEST FIT</text>';
+  s+='<text x="14" y="'+(T+ph)+'" font-family="Space Mono, monospace" font-size="8.5" fill="#8A7A65">LOW FIT</text>';
+  return s+'</svg>';
+}
+
+/* ---------------- RESULT ---------------- */
+function finish(){
+  var rows=CATS.map(function(c){return {c:c,raw:score(c),f:fitOf(c)};})
+    .sort(function(a,b){return b.raw-a.raw;}).map(function(r,i){r.i=i;return r;});
+  /* the order is already correct; make sure two rows never *display* the same
+     number, which looks like a bug even when the ranking is right */
+  for(var i=1;i<rows.length;i++) if(rows[i].f>=rows[i-1].f) rows[i].f=Math.max(3,rows[i-1].f-1);
+
+  var leak = (A.pain==='leak'), both=(A.pain==='both');
+  var h='';
+
+  h+='<div class="diag"><div class="lab">What is actually wrong</div>';
+  if(leak){
+    h+='<h2>Your problem is not <em>income.</em></h2>'+
+       '<p>You said the money disappears. Earning more will not fix that. It just means more money disappears. Find the leak first.</p>'+
+       '<p class="bmw">Masalah anda bukan pendapatan. Cari dulu ke mana duit pergi.</p></div>'+
+       '<div class="warn"><p><strong>Start with the Budget Planner.</strong> Track one month. Once you can see where it goes, come back here and pick a hustle. '+
+       '<a href="budget-planner.html">Open the Budget Planner &rarr;</a></p></div>';
+  }else if(both){
+    h+='<h2>Fix the leak <em>first.</em></h2>'+
+       '<p>You said both. Do them in order. Earning more while money leaks means you lose more. One month of tracking, then start a hustle.</p>'+
+       '<p class="bmw">Betulkan kebocoran dahulu, kemudian mula side hustle.</p></div>'+
+       '<div class="warn"><p><strong>Step 1:</strong> track one month with the Budget Planner. <strong>Step 2:</strong> start the hustle below. '+
+       '<a href="budget-planner.html">Open the Budget Planner &rarr;</a></p></div>';
+  }else{
+    var blockTxt={time:"You said no time. So the answer is not working more hours, it is earning more per hour.",
+      start:"You said you do not know where to start. That is the easiest problem here. Pick the first one below and do only the first step.",
+      money:"You said no capital. Everything below except selling can start at RM0.",
+      confidence:"You said you are not confident. Nobody is at the start. Pick the one with the fastest first payment, because one payment fixes this faster than any advice.",
+      failed:"You said you tried and got no replies. Usually that is the message or the place, not you."}[A.block]||"";
+    h+='<h2>You need to earn <em>more.</em></h2><p>'+blockTxt+'</p>'+
+       '<p class="bmw">Anda perlu tambah pendapatan. Pilihan di bawah ikut masa, kemahiran dan keadaan anda.</p></div>';
+  }
+
+  h+='<div class="sec"><div class="sech">Where each one <em>lands</em></div>'+
+     '<div class="secbm">Kedudukan setiap pilihan untuk anda</div>'+
+     '<div class="chartwrap">'+chart(rows)+
+     '<div class="legend"><span><i></i>Bigger circle = more money</span><span>Higher = fits you better</span><span>Right = paid sooner</span></div>'+
+     '</div></div>';
+
+  h+='<div class="sec"><div class="sech">Your top <em>three</em></div>'+
+     '<div class="secbm">Tiga pilihan terbaik untuk anda</div>';
+  rows.slice(0,3).forEach(function(r,i){
+    var inc=income(r.c);
+    h+='<div class="pick'+(i===0?' top':'')+'"><div class="rank">'+(i===0?'Best fit &middot; Paling sesuai':('Option '+(i+1)))+'</div>'+
+      '<h3>'+r.c.n+'</h3><div class="h3bm">'+r.c.bm+'</div>'+
+      '<p class="why">'+why(r.c)+' '+r.c.note+'</p><div class="exs">'+
+      r.c.ex.map(function(e){return '<span class="ex">'+e+'</span>';}).join('')+'</div>'+
+      '<div class="stats"><div><div class="n">'+r.f+'</div><div class="l">Fit for you</div></div>'+
+      '<div><div class="n">RM'+inc[0]+'-'+inc[1]+'</div><div class="l">A month</div></div>'+
+      '<div><div class="n">~'+r.c.days+'</div><div class="l">Days to first pay</div></div></div>';
+    if(r.c.k==='teach') h+='<a class="btn" style="margin-top:18px" href="tutoring-course.html">Start the free tutoring course &rarr;</a>';
+    h+='</div>';
+  });
+  h+='</div>';
+
+  h+='<div class="again"><button onclick="go(7)">&larr; Change my answers &middot; Tukar jawapan</button>'+
+     '<br/><button style="margin-top:10px" onclick="location.reload()">Start again &middot; Cuba semula</button></div>';
+
+  document.getElementById('s8').innerHTML=h;
+  go(8);
+}
+
+function why(c){
+  var b=[],hit=c.skills.filter(function(k){return A.good.indexOf(k)>-1;});
+  var names={explain:'explaining things',write:'writing',design:'design',video:'video editing',
+    photo:'photography',code:'spreadsheets',lang:'languages',talk:'talking to people',
+    organise:'organising',cook:'cooking',ai:'AI tools'};
+  if(hit.length) b.push('You already have '+hit.map(function(k){return names[k];}).slice(0,2).join(' and ')+'.');
+  if(A.open.indexOf(c.k)>-1) b.push('You said you are open to this kind of work.');
+  if(A.when&&c.time.indexOf(A.when)>-1){
+    b.push({evening:'It works with weekday evenings.',weekend:'It works with weekends only.',
+      scatter:'It fits into gaps between classes.',flex:'It suits a flexible schedule.'}[A.when]);
+  }
+  if(c.res.filter(function(r){return A.have.indexOf(r)<0;}).length)
+    b.push('One catch: you would need '+(c.res.indexOf('laptop')>-1?'a laptop':'a phone with a decent camera')+' for this.');
+  if(c.adult && A.have.indexOf('adult')<0) b.push('Most of these need you to be 18 or older.');
+  return b.join(' ')||'A reasonable option based on your answers.';
+}
+</script>
+</body>
+</html>

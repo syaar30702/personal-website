@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Start Tutoring — The Side Hustle Hub</title>
+<meta name="description" content="A free 5-level course for Malaysian students. Work out your price, build a tutor CV with AI, find parents, get paid, and grow from one student to five.">
+<meta property="og:title" content="How to Start Tutoring — free course">
+<meta property="og:description" content="5 short levels. Work out your price, make your tutor CV, find parents, get paid.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#B8962E;--gold-light:#D4AF50;--gold-bright:#E8C96A;
+    --white:#FFF;--off-white:#FDFBF6;--cream:#F9F4E8;--warm-grey:#F2EDE0;
+    --text-dark:#1A1510;--text-mid:#4A4035;--text-muted:#8A7A65;--text-light:#B8A990;
+    --border:rgba(184,150,46,.18);--border-mid:rgba(184,150,46,.35);
+    --shadow-lg:0 16px 64px rgba(184,150,46,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--off-white);color:var(--text-dark);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;
+      justify-content:space-between;align-items:center;background:rgba(253,251,246,.94);
+      backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
+            text-transform:uppercase;color:var(--gold);text-decoration:none}
+  .nav-prog{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
+            text-transform:uppercase;color:var(--text-muted)}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .head{padding:120px 0 44px;text-align:center}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;
+           text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,58px);font-weight:600;
+     line-height:1.05;margin-bottom:18px}
+  h1 em{font-style:italic;color:var(--gold)}
+  .lede{font-size:16px;line-height:1.8;color:var(--text-muted);font-weight:300;max-width:520px;margin:0 auto}
+
+  .dots{display:flex;justify-content:center;gap:8px;margin-top:32px}
+  .dot{width:34px;height:3px;background:var(--warm-grey);transition:background .3s}
+  .dot.done{background:var(--gold)} .dot.now{background:var(--gold-bright)}
+
+  .levels{padding:18px 0 80px}
+  .lvl{border:1px solid var(--border);background:var(--white);margin-bottom:14px;transition:.25s}
+  .lvl.open{border-color:var(--border-mid);box-shadow:var(--shadow-lg)}
+  .lvl.locked{background:var(--warm-grey);border-style:dashed;opacity:.75}
+
+  .lvl-head{display:flex;align-items:center;gap:18px;padding:24px 28px;cursor:pointer;
+            width:100%;background:none;border:none;text-align:left;font-family:'DM Sans',sans-serif}
+  .lvl.locked .lvl-head{cursor:default}
+  .lvl-badge{width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);display:flex;
+             align-items:center;justify-content:center;flex-shrink:0;font-family:'Cormorant Garamond',serif;
+             font-size:18px;font-weight:600;color:var(--gold);background:var(--white)}
+  .lvl.locked .lvl-badge{border-color:var(--text-light);color:var(--text-light);background:transparent}
+  .lvl.done .lvl-badge{background:var(--gold);color:#fff}
+  .lvl-t{flex:1}
+  .lvl-t h2{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;line-height:1.2}
+  .lvl.locked .lvl-t h2{color:var(--text-light)}
+  .lvl-meta{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.5px;
+            text-transform:uppercase;color:var(--text-light);margin-top:5px;display:block}
+  .chev{color:var(--text-light);font-size:18px}
+
+  .lvl-body{display:none;padding:0 28px 30px;border-top:1px solid var(--border)}
+  .lvl.open .lvl-body{display:block;animation:fade .3s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+  .vid{background:var(--cream);border:1px solid var(--border-mid);aspect-ratio:16/9;display:flex;
+       flex-direction:column;align-items:center;justify-content:center;margin:26px 0;text-align:center;padding:20px}
+  .vid-icon{width:52px;height:52px;border-radius:50%;background:var(--gold);display:flex;
+            align-items:center;justify-content:center;margin-bottom:14px}
+  .vid p{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
+         text-transform:uppercase;color:var(--text-light)}
+  .vid iframe{width:100%;height:100%;border:0}
+
+  .lvl-body p{font-size:15px;line-height:1.85;color:var(--text-mid);margin-bottom:16px}
+  .lvl-body p strong{color:var(--text-dark);font-weight:600}
+  .lvl-body h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:26px 0 12px}
+  .lvl-body ul{list-style:none;margin-bottom:18px;display:flex;flex-direction:column;gap:10px}
+  .lvl-body li{font-size:15px;line-height:1.7;color:var(--text-mid);display:flex;gap:12px}
+  .lvl-body li::before{content:'✦';color:var(--gold);font-size:8px;margin-top:7px;flex-shrink:0}
+  .lvl-body a{color:var(--gold)}
+
+  .quote{background:var(--cream);border-left:3px solid var(--gold);padding:20px 24px;margin:22px 0;
+         font-size:14.5px;line-height:1.8;color:var(--text-mid);white-space:pre-line}
+  .prompt{background:var(--text-dark);color:rgba(255,255,255,.88);padding:22px 24px;margin:20px 0 12px;
+          font-family:'Space Mono',monospace;font-size:12.5px;line-height:1.75;white-space:pre-line;
+          border-left:3px solid var(--gold-bright);overflow-x:auto}
+  .copy-btn{background:none;border:1px solid var(--border-mid);color:var(--text-muted);
+            font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 18px;
+            cursor:pointer;font-family:'DM Sans',sans-serif;margin-bottom:20px}
+  .copy-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+  .exbox{margin:20px 0}
+  .exbox img{width:100%;display:block;border:1px solid var(--border-mid)}
+  .exbox .ph{background:var(--cream);border:1px dashed var(--border-mid);padding:34px 20px;
+             text-align:center;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
+             text-transform:uppercase;color:var(--text-light)}
+  .exbox .cap{font-size:12px;color:var(--text-muted);margin-top:8px;font-style:italic}
+
+  .links-box{background:var(--cream);border:1px solid var(--border-mid);padding:24px;margin:20px 0}
+  .links-box h4{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin-bottom:10px}
+  .links-box ul{margin-bottom:0}
+
+  .todo{background:var(--text-dark);color:#fff;padding:26px 28px;margin-top:30px}
+  .todo .t-lab{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:2.5px;
+               text-transform:uppercase;color:var(--gold-bright);margin-bottom:10px}
+  .todo p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.85);margin:0}
+
+  .btn{background:var(--gold);color:#fff;border:none;cursor:pointer;padding:15px 34px;
+       font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;
+       text-transform:uppercase;transition:.25s;margin-top:22px;display:inline-block;text-decoration:none}
+  .btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+  .lvl.done .btn.mark{background:var(--warm-grey);color:var(--text-light)}
+  .skip{display:block;margin-top:14px;font-size:12px;color:var(--text-light);background:none;
+        border:none;cursor:pointer;text-decoration:underline;font-family:'DM Sans',sans-serif}
+  .skip:hover{color:var(--gold)}
+
+  .calc{background:var(--cream);border:1px solid var(--border-mid);border-left:3px solid var(--gold);
+        padding:28px;margin:24px 0}
+  .calc h4{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:6px}
+  .calc .sub{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.6}
+  .calc label{display:block;font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.5px;
+              text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+  .calc select,.calc input{width:100%;padding:13px 15px;border:1px solid var(--border-mid);
+        background:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text-dark);
+        margin-bottom:15px;border-radius:1px}
+  .calc select:focus,.calc input:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .calc .btn{margin-top:6px;width:100%;text-align:center}
+
+  .out{margin-top:24px;display:none}
+  .out.show{display:block;animation:fade .35s ease}
+  .out-hero{background:var(--text-dark);color:#fff;padding:32px 26px;text-align:center;position:relative;overflow:hidden}
+  .out-hero::before{content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 70% at 50% 40%,rgba(184,150,46,.18) 0,transparent 70%)}
+  .out-hero>*{position:relative;z-index:2}
+  .out-lab{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:2.5px;
+           text-transform:uppercase;color:var(--gold-bright);margin-bottom:14px}
+  .out-rate{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;
+            color:var(--gold-bright);line-height:1}
+  .out-rate span{font-size:20px}
+  .out-range{font-size:12.5px;color:rgba(255,255,255,.55);margin-top:12px}
+  .earn{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);
+        border-top:none;background:var(--white)}
+  .earn div{padding:16px 8px;text-align:center;border-right:1px solid var(--border)}
+  .earn div:last-child{border-right:none}
+  .e-num{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--gold)}
+  .e-lab{font-family:'Space Mono',monospace;font-size:7.5px;letter-spacing:1px;
+         text-transform:uppercase;color:var(--text-muted);margin-top:5px}
+  .out-why{background:var(--white);border:1px solid var(--border);border-top:none;padding:22px 24px}
+  .out-why p{font-size:14px;line-height:1.8;color:var(--text-muted);margin-bottom:14px}
+  .out-why strong{color:var(--text-dark)}
+
+  .fin{background:var(--text-dark);color:#fff;padding:80px 24px;text-align:center;
+       position:relative;overflow:hidden;display:none}
+  .fin.show{display:block}
+  .fin::before{content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(184,150,46,.14) 0,transparent 70%)}
+  .fin>*{position:relative;z-index:2}
+  .fin .eyebrow{color:var(--gold-bright)}
+  .fin h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);font-weight:600;
+          line-height:1.1;margin-bottom:16px}
+  .fin h2 em{font-style:italic;color:var(--gold-bright)}
+  .fin p{font-size:15px;line-height:1.8;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto}
+  .fin .price{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;
+              color:var(--gold-bright);margin:26px 0 4px}
+  .fin .price span{display:block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
+                   text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:8px}
+
+  footer{background:var(--cream);border-top:1px solid var(--border);padding:38px 24px;text-align:center}
+  .f-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
+          text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .f-links{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+  .f-links a{font-size:11px;color:var(--text-muted);text-decoration:none;letter-spacing:1.5px;text-transform:uppercase}
+  .f-links a:hover{color:var(--gold)}
+  .f-copy{font-size:11px;color:var(--text-light)}
+  .reset{text-align:center;padding:0 0 40px}
+  .reset button{background:none;border:none;color:var(--text-light);font-size:11px;cursor:pointer;
+                text-decoration:underline;font-family:'DM Sans',sans-serif}
+
+  a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+  @media(max-width:640px){
+    nav{padding:14px 18px}.nav-logo{font-size:8.5px;letter-spacing:2px}
+    .head{padding:100px 0 32px}
+    .lvl-head{padding:20px 18px;gap:14px}.lvl-body{padding:0 18px 26px}
+    .lvl-t h2{font-size:19px}.todo{padding:22px 18px}
+    .btn{width:100%;text-align:center}.dot{width:24px}
+    .calc{padding:20px}.earn{grid-template-columns:1fr}
+    .earn div{border-right:none;border-bottom:1px solid var(--border)}
+    .earn div:last-child{border-bottom:none}
+    .out-rate{font-size:46px}.prompt{font-size:11.5px;padding:18px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  <span class="nav-prog" id="navProg">Level 1 of 5</span>
+</nav>
+
+<div class="wrap">
+  <div class="head">
+    <div class="eyebrow">Free Course &middot; 5 Levels</div>
+    <h1>How to start <em>tutoring</em></h1>
+    <p class="lede">Five short levels. Each one takes a few minutes and gives you one thing to do.
+    Finish a level to open the next one. Your progress is saved, so you can close this page and come back later.</p>
+    <div class="dots" id="dots"></div>
+  </div>
+  <div class="levels" id="levels"></div>
+</div>
+
+<section class="fin" id="fin">
+  <div class="eyebrow">You Finished</div>
+  <h2>You know the plan.<br/>Now <em>do it.</em></h2>
+  <p>Everything here works. But knowing and doing are different things, and most people stop at
+  knowing. If you want help with your own situation, book a call with me.</p>
+  <div class="price">RM100<span>45 minute call</span></div>
+  <a class="btn" href="REPLACE_WITH_YOUR_CALENDLY_LINK">Book a Call</a>
+</section>
+
+<div class="reset"><button onclick="resetAll()">Reset my progress</button></div>
+
+<footer>
+  <div class="f-logo">Syaarveeni &times; The Side Hustle Hub</div>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#products">Free Resources</a>
+    <a href="https://instagram.com/syaaarveeni">Instagram</a>
+  </div>
+  <p class="f-copy">&copy; 2026 Syaarveeni &middot; The Side Hustle Hub &middot; All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+/* ==========================================================================
+   EDIT YOUR COURSE HERE
+   --------------------------------------------------------------------------
+   Everything you might want to change is in the list below.
+   You do not need to touch anything further down.
+
+   For each level you can edit:
+     title   the level name
+     mins    how long it takes
+     video   a YouTube embed link, or "" for an empty video box
+     body    the lesson text
+     task    the one thing to do before the next level
+
+   TO ADD A VIDEO:
+     1. Upload to YouTube, set it to Unlisted
+     2. Click Share, then Embed
+     3. Copy the link like https://www.youtube.com/embed/AbC123
+     4. Paste it between the quote marks after video:
+
+   INSIDE body YOU CAN USE:
+     <p>paragraph</p>   <h3>small heading</h3>   <ul><li>bullet</li></ul>
+     <div class="quote">highlighted box, good for message scripts</div>
+     <div class="prompt">dark box, good for AI prompts</div>
+     <strong>bold</strong>
+
+   {{CALCULATOR}} puts the price calculator wherever you type it.
+
+   ANYTHING IN [SQUARE BRACKETS] IS A GAP FOR YOU TO FILL IN with your own
+   story. Those are the parts I could not write for you.
+   ========================================================================== */
+
+var COURSE = [
+
+/* ---------------- LEVEL 1 ---------------- */
+{
+  title: "What to teach, how to teach it, and your price",
+  mins: "5 min",
+  video: "",
+  body: `
+    <p>Before you look for anyone, you need three answers: what you will teach, how a lesson will
+    run, and what you will charge. Most people skip straight to finding students, then freeze when
+    a parent asks a simple question.</p>
+
+    <h3>1. Pick your subjects</h3>
+    <p>Pick <strong>2 to 3 subjects</strong>, not one. One subject is too narrow, and you will turn
+    away parents who need something close to what you can teach. Four is too many to prepare for
+    while you are studying.</p>
+    <p>For each subject, all four of these need to be true:</p>
+    <ul>
+      <li><strong>You are good at it.</strong> Not "I passed". Good.</li>
+      <li><strong>You have proof.</strong> Your exam certificate, your result slip, your transcript.
+      Parents will ask, and a screenshot ends the conversation faster than any explanation.</li>
+      <li><strong>You have material.</strong> Your own notes, past year papers, worksheets, textbooks.
+      If you would have to build everything from nothing, pick a different subject.</li>
+      <li><strong>You are comfortable explaining it.</strong> If you need to revise before you can
+      teach it, it is not one of your subjects yet.</li>
+    </ul>
+    <p>Keep your proof somewhere you can send in 10 seconds. A folder on your phone with your result
+    slip is enough.</p>
+
+    <h3>2. Know how your lesson will run</h3>
+    <p>Parents ask "how do you teach?" Have a real answer ready.</p>
+
+    <p><strong>Prepare before the class, not during it.</strong> Have your notes and worksheets ready
+    before you sit down. A tutor who is flipping through a textbook looking for a question loses a
+    parent's trust in one lesson.</p>
+
+    <p><strong>Find out how the student learns.</strong> In your first class, watch how they work.
+    Some students need to see it drawn out. Some need to do 10 questions until it sticks. Some need
+    you to explain the why before the how. Ask them what usually confuses them in school. You are
+    not just teaching the subject, you are teaching this one person.</p>
+
+    <h3>3. Make a study plan for the parent</h3>
+    <p>This is the thing that separates you from every other student tutor.</p>
+    <p>Write a simple plan of what you will cover over the next few months, and share it with the
+    parent. Then after <strong>every single class</strong>, send them a short update with four things:</p>
+    <ul>
+      <li>What you covered today</li>
+      <li>What the homework is</li>
+      <li>Where the student is still weak</li>
+      <li>What you will cover next class</li>
+    </ul>
+    <p>Four lines. It takes you two minutes. It is the reason parents keep paying, because they can
+    see what they are paying for. Most tutors send nothing and the parent has no idea if anything
+    is happening.</p>
+    <p>[YOUR STORY: What went wrong in your first lesson? People need to hear that it was not smooth
+    for you either.]</p>
+
+    <h3>4. Work out your price</h3>
+    <p>Most students charge too little because they feel new, and then get stuck there. It is very
+    hard to raise your price on a student you already have. Use this to get a fair starting number:</p>
+
+    {{CALCULATOR}}
+
+    <p><strong>Two rules once you have your number.</strong> Never say your price as a question.
+    Say "My rate is RM45 an hour", not "Is RM45 okay?" The second one invites bargaining. And raise
+    it after 3 students, for new students only. Your existing students keep the old price, so
+    nobody feels cheated.</p>
+    <p>[YOUR STORY: What did you charge your first student, and what do you charge now? Real
+    numbers are what people remember.]</p>
+  `,
+  task: "Write down your 2 to 3 subjects, the levels you can teach them at, your price, and where your result slip is saved on your phone."
+},
+
+/* ---------------- LEVEL 2 ---------------- */
+{
+  title: "Make your tutor CV with AI",
+  mins: "4 min",
+  video: "",
+  body: `
+    <p>Most student tutors send a WhatsApp message and nothing else. The parent has no idea who you
+    are, so they hesitate.</p>
+    <p><strong>A one page CV removes that doubt.</strong> It costs you 15 minutes once, and you send
+    the same file to every parent after that. It is the easiest way to look more serious than
+    everyone else messaging them.</p>
+
+    {{IMG:my-cv-example.jpg|My own tutor CV, so you can see the layout}}
+
+    <h3>What goes on it</h3>
+    <ul>
+      <li><strong>A photo of you.</strong> A clear, friendly one. Parents are letting you near their
+      child, so a face makes a real difference. It does not need to be formal, just not a selfie in
+      a car.</li>
+      <li>Your name, and what you are studying now</li>
+      <li><strong>Your result in each subject you teach.</strong> Be specific: "A in SPM Add Maths"
+      beats "good at maths"</li>
+      <li>Which subjects and levels you teach</li>
+      <li>Your rate, and how you teach: online, face to face, or group</li>
+      <li>When you are free, in days and times</li>
+      <li>Two or three lines on how a lesson runs, and that you send an update after every class</li>
+      <li><strong>Reviews from parents you have taught.</strong> See below.</li>
+    </ul>
+
+    <h3>Reviews are the strongest thing on the page</h3>
+    <p>One line from another parent is worth more than everything you write about yourself.</p>
+    <p>You do not have any yet, and that is fine. After a student improves, ask:</p>
+    <div class="quote">Would you mind writing one or two lines about how the classes have gone? It
+really helps me when other parents ask about me.</div>
+    <p>Almost everyone says yes. Put their words on your CV with just a first name and the level,
+    like "Puan Aina, SPM Add Maths". Add a new one every time you get one.</p>
+    <p><strong>Until you have reviews</strong>, leave that section off completely. Do not write a
+    fake one. Parents talk to each other and it is not worth the risk.</p>
+
+    <h3>Let AI write it for you</h3>
+    <p>Open ChatGPT or Claude, paste this in, and change the parts in brackets to your own details:</p>
+
+    <div class="prompt">Write a one page tutor CV for a parent in Malaysia.
+
+About me:
+- Name: [your name]
+- Currently studying: [your course and university]
+- Subjects I teach and my result in each:
+  [example: SPM Add Maths - A, SPM Physics - A-]
+- Levels I teach: [example: Form 4, Form 5]
+- My rate: RM[your price] per hour
+- How I teach: [online / face to face / small group]
+- Free on: [days and times]
+- Reviews from parents: [paste any you have, or write NONE YET]
+
+Rules:
+- Keep it to one page
+- Simple English, short sentences
+- Written for a parent, not for a company
+- Do not invent any experience, results or reviews. Only use what I gave you
+- If I wrote NONE YET for reviews, leave the reviews section out completely
+- Include a short section on how a lesson runs, and mention that I send the parent
+  an update after every class
+- Leave a space at the top for my photo
+- End with my contact details and my rate</div>
+
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy this prompt</button>
+
+    <p>Read what it gives you and fix anything that is not true. AI will sometimes add things you
+    never said. <strong>Never leave in something you cannot back up</strong>, because a parent will
+    ask about it.</p>
+
+    <h3>Turn it into a file you can send</h3>
+    <p>Paste it into Google Docs or Canva, add your photo, then download it as a PDF. Send that PDF
+    on WhatsApp when a parent asks about you. A file looks far more prepared than a long message.</p>
+    <p>[YOUR STORY: Did you have anything like a CV when you started? What did parents actually ask
+    you before they said yes?]</p>
+  `,
+  task: "Make your CV today and save it as a PDF. Add your photo and your results. 15 minutes. You will send it in the next level."
+},
+
+/* ---------------- LEVEL 3 ---------------- */
+{
+  title: "Find parents and pitch",
+  mins: "4 min",
+  video: "",
+  body: `
+    <p>You do not need a website or a poster. Your first student almost always comes from someone
+    who already knows you, or knows someone who does.</p>
+    <p>[YOUR STORY: Where did your first student actually come from? A neighbour, a Facebook group,
+    a teacher from your old school, your mum's friend? Tell it as a short story. This is the most
+    important paragraph in the whole course.]</p>
+
+    <h3>The message to send</h3>
+    <div class="quote">Hi, I am [your name]. I teach [subject] for [level]!
+
+If you're looking for a tutor, I'd love to give a free trial class and answer any questions
+you have. Here is my CV with my credentials and reviews from my own students.
+
+Let me know when you'd like to have a call!</div>
+    <p>Send the CV as a PDF in the same message. The free trial class is what makes people reply,
+    because it removes all the risk for them.</p>
+
+    <h3>Where to look, in order</h3>
+    <p><strong>Start with people who already know you.</strong> This is where almost every first
+    student comes from, and these students stay longest:</p>
+    <ul>
+      <li><strong>Your old school.</strong> Message the teachers who taught you. Parents ask them
+      for tutors all the time and they need names to give.</li>
+      <li><strong>Your juniors.</strong> If you scored well in a subject, the batch below you
+      already knows it.</li>
+      <li><strong>Neighbours, and people your parents work with.</strong> Tuition spreads by word
+      of mouth more than anything else.</li>
+    </ul>
+
+    <div class="links-box">
+      <h4>Groups where tuition jobs get posted</h4>
+      <p>These are Facebook groups, Telegram channels and WhatsApp groups where parents and centres
+      post that they are looking for tutors.</p>
+      <ul>
+        [YOUR LINKS: paste 3 to 5 groups here that you actually know are active.
+        Only add ones you have checked yourself.]
+      </ul>
+      <p style="margin-bottom:0"><strong>Two warnings.</strong> Read the group rules before you post,
+      because many ban self promotion and will remove you. And never pay a deposit or a registration
+      fee to get a student. Real tuition jobs do not ask you for money upfront.</p>
+    </div>
+
+    <p><strong>Do not stop at the groups.</strong> Everyone in there is doing the same thing you are,
+    so it is the most competitive and the lowest paid place to look. Parents in groups compare
+    prices. Parents who were given your name by a teacher do not.</p>
+    <p><strong>Send 3 messages of your own for every group you join.</strong> The groups are the easy
+    option, and easy options get easy results.</p>
+
+    <h3>When they say it is too expensive</h3>
+    <p>Do not drop your price straight away. Try this first:</p>
+    <div class="quote">I understand. I could do a shorter session instead, or a small group with one
+of their friends, which works out cheaper for each student.</div>
+    <p><strong>Change what they get, not what you are worth.</strong> If you drop your price the
+    moment someone pushes, every parent they tell will expect the same.</p>
+  `,
+  task: "Send your message and your CV to 3 people you know today. Then join one group. In that order."
+},
+
+/* ---------------- LEVEL 4 ---------------- */
+{
+  title: "Get paid, and keep them",
+  mins: "4 min",
+  video: "",
+  body: `
+    <p>This is the level nobody teaches, and it is where most student tutors lose money.</p>
+
+    <h3>How to take payment</h3>
+    <p>[YOUR STORY: How do you actually get paid? DuitNow QR, bank transfer, cash after each lesson,
+    or a monthly package at the start? Say what you use and why.]</p>
+
+    <h3>Ask about transport before you agree</h3>
+    <p>If you are teaching face to face, <strong>ask about transport at the start, not later</strong>.
+    A class that is an hour away costs you two extra unpaid hours and petrol. That RM50 lesson is
+    really RM17 an hour.</p>
+    <p>You have three options, and any of them is fine as long as you say it upfront:</p>
+    <ul>
+      <li>Add a transport charge on top of your rate for anywhere far</li>
+      <li>Charge a higher hourly rate for face to face than online</li>
+      <li>Only teach face to face within a certain distance, and offer online to everyone else</li>
+    </ul>
+    <p>Asking after you have started feels like changing the price. Asking before is just being clear.</p>
+
+    <h3>Set your cancellation rule on day one</h3>
+    <p>Say it once, politely, at the start:</p>
+    <div class="quote">If you need to cancel, just let me know 24 hours before and we can move it.
+Same day cancellations still count as a lesson.</div>
+    <p>If you do not say this, you will lose hours you cannot get back. Say it before it becomes a
+    problem, not after.</p>
+    <p>[YOUR STORY: Did a parent ever pay you late, or a student cancel again and again? What did
+    you do? This is the part people worry about most.]</p>
+
+    <h3>Record your hours, and ask the parent to as well</h3>
+    <p>Keep a simple record of every class: the date, the start and end time, and what you covered.
+    A note on your phone or a small table is enough.</p>
+
+    {{IMG:time-record-example.jpg|How I record my hours}}
+
+    <p><strong>Ask the parent to keep their own record too.</strong> Say it as something that helps
+    them, because it does:</p>
+    <div class="quote">I keep a record of our class times so the monthly total is always clear.
+Feel free to keep your own as well, then we can check it together at the end of the month.</div>
+    <p>This sounds small. It is the single thing that prevents almost every payment argument. When
+    both of you have written it down, there is nothing to disagree about.</p>
+
+    <h3>How to keep a student</h3>
+    <p>Send the parent an update after every class. Four lines: what you covered, the homework,
+    where the student is weak, and what is next.</p>
+
+    {{IMG:parent-update-example.jpg|An update I send after class}}
+
+    <p>Parents pay for progress they can see. Most tutors send nothing, so the parent has no idea
+    whether anything is working, and they stop during exam season when money gets tight.</p>
+    <p>And when a mark improves, <strong>say so</strong>. Send the result and one line about what
+    changed. That message is what keeps a student for another year.</p>
+
+    {{IMG:result-message-example.jpg|Telling a parent about a result}}
+  `,
+  task: "Set up your class record today. Write your cancellation rule and your transport rule in one sentence each, and send them to your next parent before the first class."
+},
+
+/* ---------------- LEVEL 5 ---------------- */
+{
+  title: "Go from 1 student to 5",
+  mins: "3 min",
+  video: "",
+  body: `
+    <p>One student is a favour. Five students is income. Getting from one to five is not about more
+    advertising. It is about the student you already have.</p>
+
+    <h3>Ask, but ask at the right time</h3>
+    <p>Wait until your student gets a result. A better test mark, a grade up, anything you can point
+    at. Then message the parent:</p>
+    <div class="quote">Really happy with how [name] did this term. If any of your friends are looking
+for a tutor, I have one slot open this month.</div>
+    <p><strong>"One slot" matters.</strong> It is true, and it makes people act now instead of later.</p>
+    <p>Ask for a review in the same message. A referral and a review come from the same good moment,
+    and the review goes straight onto your CV for the next parent.</p>
+
+    <h3>Two ways to earn more without more hours</h3>
+    <ul>
+      <li><strong>Teach 2 or 3 students together.</strong> Charge each of them less, and earn more
+      per hour than one to one. Works best when they are in the same class.</li>
+      <li><strong>Raise your price for new students only.</strong> Old students keep the old rate.
+      Nobody feels cheated and you avoid an awkward conversation.</li>
+    </ul>
+    <p>[YOUR STORY: How long did it take you to get to 5 students? What actually made the difference?]</p>
+
+    <h3>Know when to stop</h3>
+    <p>You are a student too. Decide your maximum hours per week before you get busy, not after.
+    Tutoring should pay for your life, not replace it.</p>
+  `,
+  task: "Message one parent asking for a referral and a review. Only if your student has a result you can point to."
+}
+
+];
+
+/* ==========================================================================
+   Below here is the code that makes it work. You should not need to change it.
+   ========================================================================== */
+
+var LEVELS=[
+ {n:'Kindergarten',g:[20,40],s:[30,50],p:[40,60]},
+ {n:'Standard 1-3',g:[28,40],s:[30,46],p:[40,62]},
+ {n:'Standard 4-5',g:[30,46],s:[32,52],p:[41,68]},
+ {n:'UPSR / Standard 6',g:[32,52],s:[35,60],p:[45,75]},
+ {n:'PT3 / Form 1-3',g:[35,58],s:[38,64],p:[46,80]},
+ {n:'SPM / Form 4-5',g:[38,64],s:[41,70],p:[49,86]},
+ {n:'STPM',g:[41,70],s:[44,76],p:[52,92]},
+ {n:'Cambridge IGCSE',g:[40,60],s:[60,80],p:[80,100]},
+ {n:'Cambridge O Level',g:[40,60],s:[60,80],p:[80,100]},
+ {n:'Cambridge A Level',g:[60,80],s:[80,100],p:[120,150]},
+ {n:'South Australian Matriculation',g:[60,80],s:[80,100],p:[120,150]},
+ {n:'Australian Matriculation',g:[60,80],s:[80,100],p:[120,150]},
+ {n:'NSW Higher School Certificate',g:[60,80],s:[80,100],p:[120,150]},
+ {n:'Canadian Matriculation',g:[60,80],s:[80,100],p:[120,150]},
+ {n:'International Baccalaureate',g:[60,80],s:[80,100],p:[120,150]},
+ {n:'American Degree Transfer',g:[60,80],s:[80,100],p:[120,150]},
+ {n:'University level',g:[100,120],s:[120,150],p:[150,200]}
+];
+var EXP={none:{y:0,f:.80,n:'not taught for money yet'},
+ informal:{y:.5,f:.90,n:'only taught friends or family'},
+ '1to3':{y:2,f:1,n:'1 to 3 years of paid teaching'},
+ '3to5':{y:4,f:1.12,n:'3 to 5 years of paid teaching'},
+ '5plus':{y:6,f:1.25,n:'more than 5 years of paid teaching'}};
+var MODE={home:{m:1,n:'face to face, one student'},online:{m:.9,n:'online, one student'},
+ group:{m:.75,n:'a small group'},centre:{m:.6,n:'at a tuition centre'}};
+var SUBJ={spec:{m:1.15},core:{m:1},hum:{m:.9},all:{m:1}};
+
+var CKEY='sh_tutor_calc', R=null;
+
+function calcHTML(){
+  var o='';
+  LEVELS.forEach(function(L,i){o+='<option value="'+i+'">'+L.n+'</option>';});
+  return '<div class="calc">'+
+    '<h4>What can you charge?</h4>'+
+    '<p class="sub">Six questions. Based on real Malaysian tuition prices.</p>'+
+    '<label>Your name</label><input id="c_name" type="text" placeholder="First name">'+
+    '<label>Your highest study level</label><select id="c_qual">'+
+      '<option value="spm">SPM</option><option value="pre">STPM, Diploma or Foundation</option>'+
+      '<option value="uni" selected>Still in university</option>'+
+      '<option value="bachelor">Finished a degree</option>'+
+      '<option value="postgrad">Postgraduate</option>'+
+      '<option value="teaching">Teaching qualification</option></select>'+
+    '<label>Level you want to teach</label><select id="c_lvl"><option value="">Choose...</option>'+o+'</select>'+
+    '<label>Subject</label><select id="c_sub"><option value="">Choose...</option>'+
+      '<option value="spec">Add Maths, Physics, Chemistry, Accounts or Economics</option>'+
+      '<option value="core">Maths, Science or English</option>'+
+      '<option value="hum">BM, Sejarah, Geography or Moral</option>'+
+      '<option value="all">All subjects (primary)</option></select>'+
+    '<label>Have you taught before?</label><select id="c_exp">'+
+      '<option value="none">Never</option><option value="informal">Only for free</option>'+
+      '<option value="1to3">1 to 3 years, paid</option>'+
+      '<option value="3to5">3 to 5 years, paid</option>'+
+      '<option value="5plus">More than 5 years, paid</option></select>'+
+    '<label>How will you teach?</label><select id="c_mode">'+
+      '<option value="home">Face to face, one student</option>'+
+      '<option value="online">Online, one student</option>'+
+      '<option value="group">Small group of 2 to 3</option>'+
+      '<option value="centre">At a tuition centre</option></select>'+
+    '<button class="btn" onclick="runCalc()">Show my price</button>'+
+    '<div class="out" id="calcOut"></div></div>';
+}
+function round5(x){return Math.round(x/5)*5;}
+function tierOf(q,e){var y=EXP[e].y;
+  if(q==='teaching'&&y>=5)return 'p';
+  if(q==='teaching'&&y>=4)return 's';
+  if((q==='postgrad'||q==='bachelor')&&y>=5)return 's';
+  return 'g';}
+
+function runCalc(){
+  var li=document.getElementById('c_lvl').value, sb=document.getElementById('c_sub').value;
+  if(li===''||sb===''){alert('Please choose a level and a subject.');return;}
+  var a={name:document.getElementById('c_name').value.trim(),
+         qual:document.getElementById('c_qual').value,
+         lvl:li, sub:sb,
+         exp:document.getElementById('c_exp').value,
+         mode:document.getElementById('c_mode').value};
+  try{localStorage.setItem(CKEY,JSON.stringify(a));}catch(e){}
+  showCalc(a);
+}
+function showCalc(a){
+  var out=document.getElementById('calcOut'); if(!out)return;
+  var L=LEVELS[parseInt(a.lvl,10)]; if(!L)return;
+  var t=tierOf(a.qual,a.exp), band=L[t], mode=MODE[a.mode], subj=SUBJ[a.sub], f=EXP[a.exp].f;
+  var anchor=band[0]+(band[1]-band[0])*.35;
+  var rate=Math.max(15,round5(anchor*f*mode.m*subj.m));
+  var lo=Math.max(15,round5(band[0]*f*mode.m*subj.m)), hi=round5(band[1]*f*mode.m*subj.m);
+  if(hi<=rate) hi=round5(rate*1.25);
+  R={a:a,L:L,rate:rate,lo:lo,hi:hi,mode:mode,
+     tierName:{g:'General tutor',s:'Specialist tutor',p:'Premium tutor'}[t]};
+
+  var why='The normal price for '+L.n+' is RM'+band[0]+' to RM'+band[1]+' an hour. ';
+  why += f<1 ? 'You have '+EXP[a.exp].n+', so your price starts a little below that. Not much. Just enough to help you get your first student. '
+       : f>1 ? 'You have '+EXP[a.exp].n+', so you can charge above the normal price. '
+             : 'You have '+EXP[a.exp].n+', so you can charge the normal price. ';
+  if(a.sub==='spec') why+='Add Maths, Physics and Chemistry pay about 15% more. Fewer people can teach them well. ';
+  if(a.sub==='hum')  why+='Language and history subjects pay a little less. More people can teach them. ';
+  if(a.mode==='online') why+='Online pays about 10% less than face to face, but you save all your travel time. ';
+  if(a.mode==='group')  why+='A group pays less per student, but 2 or 3 students in one hour means more money for you. ';
+  if(a.mode==='centre') why+='A tuition centre keeps part of your pay, but they find the students for you. ';
+  if(a.exp==='none')    why+='Get 3 students first. Help one of them improve. Then raise your price.';
+
+  var mult=(a.mode==='group')?2:1, cells='';
+  [4,8,12].forEach(function(h){
+    var m=Math.round(rate*h*4.33/10)*10*mult;
+    cells+='<div><div class="e-num">RM'+m.toLocaleString()+'</div><div class="e-lab">'+h+' hours a week</div></div>';
+  });
+
+  out.innerHTML='<div class="out-hero"><div class="out-lab">Your starting price</div>'+
+    '<div class="out-rate">RM'+rate+'<span>/hour</span></div>'+
+    '<div class="out-range">Normal range for you: RM'+lo+' to RM'+hi+' an hour</div></div>'+
+    '<div class="earn">'+cells+'</div>'+
+    '<div class="out-why"><p>'+why+'</p>'+
+    '<p>This is if every class happens. Real months have cancelled classes, exams and holidays, so treat it as the highest amount, not the normal amount.</p>'+
+    '<p><strong>Where you live matters too.</strong> Tutors in KL, PJ, Subang and Cheras charge more. Smaller towns pay less. In a big city, aim for the top of your range. If not, start at the bottom.</p>'+
+    '<button class="btn" onclick="makePDF()">Download my price plan</button></div>';
+  out.classList.add('show');
+}
+
+/* {{IMG:filename.jpg|caption}} shows your image if the file is in the same
+   folder, or a neat placeholder box until you add it. */
+function imgHTML(_m,file,cap){
+  return '<div class="exbox">'+
+    '<img src="'+file+'" alt="'+cap+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">'+
+    '<div class="ph" style="display:none">Image coming soon</div>'+
+    (cap?'<div class="cap">'+cap+'</div>':'')+'</div>';
+}
+
+function copyPrompt(btn){
+  var el=btn.previousElementSibling; if(!el)return;
+  var t=el.innerText;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){
+      btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy this prompt';},1600);
+    });
+  }
+}
+
+function makePDF(){
+  if(!R){alert('Please work out your price first.');return;}
+  var J=window.jspdf&&window.jspdf.jsPDF;
+  if(!J){alert('The PDF tool could not load. Check your internet connection and try again.');return;}
+  try{
+    var d=new J({unit:'mm',format:'a4'}),W=210,M=18,y=0;
+    var GOLD=[184,150,46],DARK=[26,21,16],MUT=[138,122,101];
+    function h(t,s,c,yy){d.setFont('helvetica','bold');d.setFontSize(s);d.setTextColor(c[0],c[1],c[2]);d.text(t,M,yy);}
+    function p(t,yy,s,c,w){d.setFont('helvetica','normal');d.setFontSize(s||10.5);
+      var cc=c||MUT;d.setTextColor(cc[0],cc[1],cc[2]);
+      var ln=d.splitTextToSize(t,w||(W-M*2));d.text(ln,M,yy);return yy+ln.length*5.2;}
+
+    d.setFillColor(GOLD[0],GOLD[1],GOLD[2]);d.rect(0,0,W,4,'F');
+    d.setFont('courier','normal');d.setFontSize(7.5);d.setTextColor(GOLD[0],GOLD[1],GOLD[2]);
+    d.text('SYAARVEENI  X  THE SIDE HUSTLE HUB',M,16);
+    h('Your Tutoring Price Plan',22,DARK,32);
+    d.setFont('helvetica','normal');d.setFontSize(10);d.setTextColor(MUT[0],MUT[1],MUT[2]);
+    d.text('Made for '+(R.a.name||'you'),M,40);
+
+    d.setFillColor(26,21,16);d.rect(M,50,W-M*2,34,'F');
+    d.setFont('courier','normal');d.setFontSize(7.5);d.setTextColor(232,201,106);
+    d.text('YOUR STARTING PRICE',M+8,60);
+    d.setFont('helvetica','bold');d.setFontSize(30);d.setTextColor(232,201,106);
+    d.text('RM'+R.rate+' / hour',M+8,75);
+    d.setFont('helvetica','normal');d.setFontSize(8.5);d.setTextColor(190,180,165);
+    d.text(R.tierName+'  -  '+R.L.n+'  -  '+R.mode.n,M+8,81.5);
+
+    y=96;h('How much you can earn',13,DARK,y);y+=7;
+    var mult=(R.a.mode==='group')?2:1;
+    [[4,'4 hours a week'],[8,'8 hours a week'],[12,'12 hours a week']].forEach(function(r){
+      var m=Math.round(R.rate*r[0]*4.33/10)*10*mult;
+      d.setFont('helvetica','normal');d.setFontSize(10.5);d.setTextColor(MUT[0],MUT[1],MUT[2]);d.text(r[1],M,y);
+      d.setFont('helvetica','bold');d.setTextColor(GOLD[0],GOLD[1],GOLD[2]);
+      d.text('RM'+m.toLocaleString()+' a month',M+70,y);y+=6.5;});
+
+    y+=6;h('Your price range',13,DARK,y);y+=7;
+    y=p('For '+R.L.n+' at your level, RM'+R.lo+' to RM'+R.hi+' an hour is normal. Start at RM'+R.rate+
+      '. Once you have 3 students, and one of them improves, raise it to RM'+Math.min(R.hi,R.rate+10)+
+      ' for new students only. Nobody stops classes over RM10.',y);
+
+    y+=8;h('Your first 3 steps',13,DARK,y);y+=7;
+    y=p('1.  Make your tutor CV. One page: your name, your result in this subject, your level, your rate, and when you are free.',y)+2;
+    y=p('2.  Send it to 3 people today. Your old teachers, parent groups in your area, and your juniors.',y)+2;
+    y=p('3.  Offer the first 30 minutes free. It costs you half an hour and removes all the risk for them.',y);
+
+    y+=10;h('The message to send',13,DARK,y);y+=7;
+    var sc='Hi, I am '+(R.a.name||'[your name]')+'. I teach '+R.L.n+' and I have a few slots open this month.\n\n'+
+      'My rate is RM'+R.rate+' an hour, '+R.mode.n+'. The first 30 minutes are free, so your child can try it first before you decide.\n\n'+
+      'I have attached my CV. Would you like to try?';
+    var ln=d.splitTextToSize(sc,W-M*2-12);
+    d.setFillColor(249,244,232);d.rect(M,y-4,W-M*2,ln.length*5+10,'F');
+    d.setDrawColor(GOLD[0],GOLD[1],GOLD[2]);d.setLineWidth(1.2);d.line(M,y-4,M,y+ln.length*5+6);
+    d.setFont('helvetica','italic');d.setFontSize(10);d.setTextColor(74,64,53);
+    d.text(ln,M+6,y+2);y+=ln.length*5+16;
+
+    d.setFillColor(249,244,232);d.rect(M,y,W-M*2,30,'F');
+    d.setDrawColor(GOLD[0],GOLD[1],GOLD[2]);d.line(M,y,M,y+30);
+    d.setFont('helvetica','bold');d.setFontSize(11.5);d.setTextColor(DARK[0],DARK[1],DARK[2]);
+    d.text('Want me to look at your situation?',M+7,y+10);
+    d.setFont('helvetica','normal');d.setFontSize(9.5);d.setTextColor(MUT[0],MUT[1],MUT[2]);
+    d.text(d.splitTextToSize('A 45 minute call with me, RM100. We work out your subjects, your price, and who to contact first.',W-M*2-14),M+7,y+17);
+    d.setFont('helvetica','bold');d.setFontSize(9);d.setTextColor(GOLD[0],GOLD[1],GOLD[2]);
+    d.text('Book at:  REPLACE_WITH_YOUR_CALENDLY_LINK',M+7,y+27);
+
+    d.setFont('courier','normal');d.setFontSize(7.5);d.setTextColor(184,169,144);
+    d.text('Based on real Malaysian tuition prices. Your area can change this a little.',M,285);
+
+    var blob=d.output('blob'), url=URL.createObjectURL(blob);
+    var a=document.createElement('a');a.href=url;a.download='my-tutoring-price-plan.pdf';
+    document.body.appendChild(a);a.click();a.remove();
+  }catch(e){console.error(e);alert('Something went wrong building the PDF. Please try again.');}
+}
+
+var KEY='sh_tutoring_progress';
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}}
+function save(a){try{localStorage.setItem(KEY,JSON.stringify(a))}catch(e){}}
+var done=load();
+
+function build(){
+  var box=document.getElementById('levels');box.innerHTML='';
+  COURSE.forEach(function(L,i){
+    var isDone=done.indexOf(i)>-1, unlocked=(i===0)||done.indexOf(i-1)>-1||isDone;
+    var el=document.createElement('div');
+    el.className='lvl'+(isDone?' done':'')+(unlocked?'':' locked');el.id='lvl'+i;
+    var vid=L.video
+      ? '<div class="vid"><iframe src="'+L.video+'" title="'+L.title+'" allowfullscreen loading="lazy"></iframe></div>'
+      : '<div class="vid"><div class="vid-icon"><svg width="15" height="17" viewBox="0 0 20 22" fill="none"><path d="M19 11L1 21.39V0.61L19 11Z" fill="white"/></svg></div><p>Video coming soon</p></div>';
+    var body=L.body.replace('{{CALCULATOR}}',calcHTML()).replace(/\{\{IMG:([^|}]+)\|([^}]*)\}\}/g,imgHTML);
+    el.innerHTML='<button class="lvl-head"'+(unlocked?' onclick="toggle('+i+')"':' disabled')+'>'+
+      '<span class="lvl-badge">'+(isDone?'\u2713':(unlocked?(i+1):'\u{1F512}'))+'</span>'+
+      '<span class="lvl-t"><h2>'+L.title+'</h2><span class="lvl-meta">'+
+      (unlocked?('Level '+(i+1)+' \u00B7 '+L.mins):'Finish level '+i+' to open')+'</span></span>'+
+      (unlocked?'<span class="chev">\u203A</span>':'')+'</button>'+
+      '<div class="lvl-body">'+vid+body+
+      '<div class="todo"><div class="t-lab">Do this before the next level</div><p>'+L.task+'</p></div>'+
+      '<button class="btn mark" onclick="mark('+i+')">'+(isDone?'Done \u2713':'Mark as done')+'</button>'+
+      (isDone?'':'<button class="skip" onclick="mark('+i+')">Already know this? Skip ahead</button>')+'</div>';
+    box.appendChild(el);
+  });
+  restoreCalc();dots();prog();
+  document.getElementById('fin').classList.toggle('show',done.length>=COURSE.length);
+}
+function restoreCalc(){
+  if(!document.getElementById('c_lvl'))return;
+  try{
+    var a=JSON.parse(localStorage.getItem(CKEY));if(!a)return;
+    var nm=document.getElementById('c_name');if(nm)nm.value=a.name||'';
+    ['qual','lvl','sub','exp','mode'].forEach(function(k){
+      var el=document.getElementById('c_'+k);if(el&&a[k]!=null)el.value=a[k];});
+    showCalc(a);
+  }catch(e){}
+}
+function dots(){var c=document.getElementById('dots');c.innerHTML='';
+  COURSE.forEach(function(_,i){var s=document.createElement('span');
+    s.className='dot'+(done.indexOf(i)>-1?' done':(i===done.length?' now':''));c.appendChild(s);});}
+function prog(){document.getElementById('navProg').textContent=
+  done.length>=COURSE.length?'All levels done':('Level '+Math.min(done.length+1,COURSE.length)+' of '+COURSE.length);}
+function toggle(i){var el=document.getElementById('lvl'+i);if(!el)return;
+  document.querySelectorAll('.lvl').forEach(function(x){if(x!==el)x.classList.remove('open')});
+  el.classList.toggle('open');
+  if(el.classList.contains('open'))el.scrollIntoView({behavior:'smooth',block:'start'});}
+function mark(i){if(done.indexOf(i)===-1){done.push(i);save(done);}build();
+  var n=i+1;setTimeout(function(){
+    if(n<COURSE.length)toggle(n);
+    else document.getElementById('fin').scrollIntoView({behavior:'smooth'});},120);}
+function resetAll(){done=[];save(done);
+  try{localStorage.removeItem(CKEY);}catch(e){}
+  build();window.scrollTo({top:0,behavior:'smooth'});}
+
+build();
+if(done.length>0&&done.length<COURSE.length)toggle(done.length);
+</script>
+</body>
+</html>
