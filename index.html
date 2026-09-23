@@ -165,7 +165,7 @@
   .hero-inner {
     max-width:1100px; margin:0 auto; position:relative; z-index:2;
     display:grid; grid-template-columns:1fr;
-    align-items:center; width:100%;
+    gap:48px; align-items:center; width:100%;
   }
 
   .hero-top {
@@ -395,34 +395,30 @@
   /* ── TRANSFORM ── */
   .transform-section { background:var(--white); }
 
-  /* THE SHIFT: before on the left, video in the middle, after on the right */
-  .shift-section { background:var(--white); border-bottom:1px solid var(--border); }
-  .shift-row { margin-top:52px; }
-  .shift-cols {
-    display:grid; grid-template-columns:1fr 254px 1fr;
-    gap:20px; align-items:stretch;
-  }
-  .shift-video { display:flex; align-items:center; }
-  .shift-video .video-frame { aspect-ratio:9/16; width:100%; border-radius:2px; }
-  .shift-video .video-label { font-size:8px; letter-spacing:2px; }
-  .shift-video .play-btn { width:54px; height:54px; margin-bottom:12px; }
+  /* ── TRANSFORM ── */
+  .transform-section { background:var(--white); }
 
-  .transform-before, .transform-after {
-    border:1px solid var(--border); padding:30px 28px;
-    display:flex; flex-direction:column; justify-content:center;
+  .shift-video { margin-top:48px; }
+  .shift-video .video-frame { aspect-ratio:16/9; }
+
+  .transform-grid {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:0; margin-top:24px;
+    border:1px solid var(--border);
   }
-  .transform-before { background:var(--off-white); }
-  .transform-after  { background:var(--cream); }
+
+  .transform-before { background:var(--off-white); padding:52px; border-right:1px solid var(--border); }
+  .transform-after { background:var(--cream); padding:52px; }
 
   .transform-label {
     font-family:'Space Mono',monospace;
     font-size:9px; letter-spacing:3px; text-transform:uppercase;
-    margin-bottom:22px; display:flex; align-items:center; gap:10px;
+    margin-bottom:32px; display:flex; align-items:center; gap:10px;
   }
   .transform-before .transform-label { color:var(--text-light); }
   .transform-after .transform-label { color:var(--gold); }
-  .transform-items { display:flex; flex-direction:column; gap:13px; }
-  .transform-item { display:flex; align-items:flex-start; gap:11px; font-size:13.5px; line-height:1.55; }
+  .transform-items { display:flex; flex-direction:column; gap:14px; }
+  .transform-item { display:flex; align-items:flex-start; gap:12px; font-size:14px; line-height:1.5; }
   .transform-before .transform-item { color:var(--text-muted); }
   .transform-after .transform-item { color:var(--text-dark); font-weight:500; }
   .t-icon { flex-shrink:0; margin-top:1px; }
@@ -717,15 +713,16 @@
     .hero { padding:100px 20px 60px; }
     .hero-inner { grid-template-columns:1fr; gap:32px; }
     .hero-top { grid-template-columns:1fr; gap:32px; }
-    .stats-inner { grid-template-columns:repeat(2,1fr); gap:24px; }
+    .stats-inner { grid-template-columns:repeat(2,1fr); gap:22px; }
+    .stat-divider:nth-child(2n) { border-right:none; }
     .stats-bar { padding:28px 20px; }
     .stat-divider:nth-child(2) { border-right:none; }
     .story-grid { grid-template-columns:1fr; gap:40px; }
-    .resource-grid { grid-template-columns:repeat(2,1fr); gap:20px; }
+    .resource-grid { grid-template-columns:repeat(2,1fr); gap:18px; }
     .resource-label { font-size:12px; }
-    .shift-cols { grid-template-columns:1fr; gap:16px; }
-    .shift-video { max-width:260px; margin:0 auto; width:100%; order:-1; }
-    .transform-before, .transform-after { padding:26px 22px; }
+    .transform-grid { grid-template-columns:1fr; }
+    .transform-before { border-right:none; border-bottom:1px solid var(--border); }
+    .transform-before, .transform-after { padding:36px; }
     .coming-grid { grid-template-columns:repeat(2,1fr); }
     .roadmap-steps { grid-template-columns:repeat(2,1fr); gap:40px; }
     .roadmap-steps::before { display:none; }
@@ -734,6 +731,58 @@
     .cta-section { padding:80px 20px; }
     footer { padding:40px 20px; }
   }
+
+  /* ── SMALL PHONES ── */
+  @media(max-width:520px){
+    .ticker-item{font-size:9px;letter-spacing:1.5px;gap:12px}
+    .ticker-inner{gap:30px}
+
+    .hero{padding:92px 18px 48px}
+    .hero-headline{font-size:clamp(34px,10vw,44px);line-height:1.06}
+    .hero-sub{font-size:15.5px;line-height:1.7;margin-bottom:30px}
+    .hero-ctas{flex-direction:column;gap:10px}
+    .hero-ctas a{width:100%;text-align:center}
+    .portrait-stats{left:10px;right:10px;bottom:10px;padding:12px 4px}
+    .portrait-stat .ps-num{font-size:19px}
+    .portrait-stat .ps-label{font-size:6.5px;letter-spacing:1px}
+
+    section{padding:52px 18px}
+    .section-title{font-size:clamp(28px,8.5vw,36px)}
+    .section-body{font-size:15px}
+    .stats-bar{padding:24px 18px}
+    .stats-inner{gap:18px}
+    .stat-number{font-size:30px}
+    .stat-label{font-size:8.5px;letter-spacing:1.2px}
+
+    .story-grid{gap:30px}
+    .timeline-item{gap:16px;padding-bottom:26px}
+    .story-quote{font-size:16px}
+    .story-photo-overlay{padding:20px}
+
+    .shift-video{margin-top:30px}
+    .transform-grid{margin-top:18px}
+    .transform-before,.transform-after{padding:26px 22px}
+    .transform-label{margin-bottom:20px}
+    .transform-item{font-size:13.5px}
+
+    /* one tile per row: two across is unreadable on a small screen */
+    .resource-grid{grid-template-columns:1fr;gap:26px;max-width:300px;margin:0 auto}
+    .resource-label{font-size:13px}
+
+    .coming-grid{grid-template-columns:1fr}
+    .coming-soon-section{padding:48px 18px}
+    .roadmap-steps{grid-template-columns:1fr;gap:30px}
+    .testimonials-grid{gap:12px}
+    .testimonial-card{padding:26px 22px}
+    .testimonial-text{font-size:16px}
+
+    .cta-section{padding:60px 18px}
+    .cta-section .section-title{font-size:clamp(30px,9vw,40px)}
+    .cta-buttons{flex-direction:column;gap:10px}
+    .cta-buttons a{width:100%;text-align:center}
+    .footer-links{gap:16px 20px}
+  }
+
 </style>
 </head>
 <body>
@@ -833,50 +882,6 @@
   </div>
 </div>
 
-<!-- THE SHIFT -->
-<section class="shift-section">
-  <div class="section-inner">
-    <div class="section-eyebrow">The Shift</div>
-    <h2 class="section-title">From broke student<br/>to <em>income builder.</em></h2>
-    <div class="shift-row">
-      <div class="shift-cols">
-        <div class="transform-before">
-        <div class="transform-label"><span class="t-icon">✕</span> Before the hub</div>
-        <div class="transform-items">
-          <div class="transform-item"><span class="t-icon">—</span> Waiting for allowance to hit</div>
-          <div class="transform-item"><span class="t-icon">—</span> No idea how to start a side hustle</div>
-          <div class="transform-item"><span class="t-icon">—</span> Spending without a plan</div>
-          <div class="transform-item"><span class="t-icon">—</span> Watching others make money online</div>
-          <div class="transform-item"><span class="t-icon">—</span> Thinking you need capital to start</div>
-          <div class="transform-item"><span class="t-icon">—</span> Feeling behind financially</div>
-        </div>
-      </div>
-        <div class="shift-video">
-          <div class="video-frame">
-            <div class="video-badge">Watch my story</div>
-            <div class="play-btn">
-              <svg width="18" height="20" viewBox="0 0 20 22" fill="none" aria-hidden="true">
-                <path d="M19 11L0.999999 21.3923L1 0.607696L19 11Z" fill="white"/>
-              </svg>
-            </div>
-            <div class="video-label">Embed your video here</div>
-          </div>
-        </div>
-        <div class="transform-after">
-        <div class="transform-label"><span class="t-icon">✦</span> After the hub</div>
-        <div class="transform-items">
-          <div class="transform-item"><span class="t-icon">✦</span> Your first <strong>RM500–RM1k</strong> side income</div>
-          <div class="transform-item"><span class="t-icon">✦</span> Clear step-by-step roadmap to follow</div>
-          <div class="transform-item"><span class="t-icon">✦</span> A budget system that actually works</div>
-          <div class="transform-item"><span class="t-icon">✦</span> Building income with existing skills</div>
-          <div class="transform-item"><span class="t-icon">✦</span> Started with RM0 capital</div>
-          <div class="transform-item"><span class="t-icon">✦</span> In control of your financial future</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- STORY -->
 <section class="story-section" id="story">
   <div class="section-inner">
@@ -905,7 +910,7 @@
             <div class="timeline-dot">03</div>
             <div class="timeline-content">
               <h4>Stacked income streams</h4>
-              <p>Each stream compounded. <strong>RM1k</strong> became <strong>RM5k</strong> became <strong>RM10k months</strong>.</p>
+              <p>Each stream compounded. <strong>RM1,000</strong> became <strong>RM5k</strong> became <strong>RM10k months</strong>.</p>
             </div>
           </div>
           <div class="timeline-item">
@@ -932,6 +937,50 @@
         </div>
       </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORM -->
+<section class="transform-section">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Shift</div>
+    <h2 class="section-title">From broke student<br/>to <em>income builder.</em></h2>
+
+    <div class="shift-video">
+      <div class="video-frame">
+        <div class="video-badge">Watch my story</div>
+        <div class="play-btn">
+          <svg width="20" height="22" viewBox="0 0 20 22" fill="none" aria-hidden="true">
+            <path d="M19 11L0.999999 21.3923L1 0.607696L19 11Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="video-label">Embed your video here</div>
+      </div>
+    </div>
+
+    <div class="transform-grid">
+      <div class="transform-before">
+        <div class="transform-label"><span class="t-icon">✕</span> Before the hub</div>
+        <div class="transform-items">
+          <div class="transform-item"><span class="t-icon">—</span> Waiting for allowance to hit</div>
+          <div class="transform-item"><span class="t-icon">—</span> No idea how to start a side hustle</div>
+          <div class="transform-item"><span class="t-icon">—</span> Spending without a plan</div>
+          <div class="transform-item"><span class="t-icon">—</span> Watching others make money online</div>
+          <div class="transform-item"><span class="t-icon">—</span> Thinking you need capital to start</div>
+          <div class="transform-item"><span class="t-icon">—</span> Feeling behind financially</div>
+        </div>
+      </div>
+      <div class="transform-after">
+        <div class="transform-label"><span class="t-icon">✦</span> After the hub</div>
+        <div class="transform-items">
+          <div class="transform-item"><span class="t-icon">✦</span> Your first <strong>RM500–RM1,000</strong> side income</div>
+          <div class="transform-item"><span class="t-icon">✦</span> Clear step-by-step roadmap to follow</div>
+          <div class="transform-item"><span class="t-icon">✦</span> A budget system that actually works</div>
+          <div class="transform-item"><span class="t-icon">✦</span> Building income with existing skills</div>
+          <div class="transform-item"><span class="t-icon">✦</span> Started with RM0 capital</div>
+          <div class="transform-item"><span class="t-icon">✦</span> In control of your financial future</div>
+        </div>
     </div>
   </div>
 </section>
@@ -1023,65 +1072,6 @@
   </div>
 </section>
 
-<!-- COMING SOON -->
-<section class="coming-soon-section">
-  <div class="section-inner">
-    <div class="section-eyebrow">Coming Soon</div>
-    <h3 class="coming-title">More tools dropping soon.</h3>
-    <p class="coming-sub">The hub keeps growing.</p>
-    <div class="coming-grid">
-      <div class="coming-card">
-        <div class="coming-icon">📡</div>
-        <h4>Opportunity Channel</h4>
-        <p>Exclusive gigs, brand deals, and side hustle opportunities sent directly to you.</p>
-        <div class="coming-label">Coming Soon</div>
-      </div>
-      <div class="coming-card">
-        <div class="coming-icon">📈</div>
-        <h4>Investing for Students</h4>
-        <p>How to start investing with RM100 — stocks, unit trusts, and growing your money.</p>
-        <div class="coming-label">Coming Soon</div>
-      </div>
-      <div class="coming-card">
-        <div class="coming-icon">⚖️</div>
-        <h4>Study + Income Balance</h4>
-        <p>The exact system I use to manage med school, business, and a social life.</p>
-        <div class="coming-label">Coming Soon</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ROADMAP -->
-<section class="roadmap-section" id="roadmap">
-  <div class="section-inner">
-    <div class="section-eyebrow">How It Works</div>
-    <h2 class="section-title">From zero to your<br/><em>first RM1k.</em></h2>
-    <div class="roadmap-steps">
-      <div class="roadmap-step">
-        <div class="step-number">1</div>
-        <h4>Know Your Numbers</h4>
-        <p>Use the Budget Tracker to understand what you earn, spend, and need to hit your goal.</p>
-      </div>
-      <div class="roadmap-step">
-        <div class="step-number">2</div>
-        <h4>Find Your Hustle</h4>
-        <p>Use the AI Analyser to discover which side hustle fits your skills and schedule.</p>
-      </div>
-      <div class="roadmap-step">
-        <div class="step-number">3</div>
-        <h4>Launch This Week</h4>
-        <p>Follow the tutoring or freelancing guide to get your first paying client immediately.</p>
-      </div>
-      <div class="roadmap-step">
-        <div class="step-number">4</div>
-        <h4>Stack &amp; Scale</h4>
-        <p>Reinvest your earnings. Add more streams. Build towards your first <strong>RM10k month</strong>.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- TESTIMONIALS -->
 <section class="testimonials-section">
   <div class="section-inner">
@@ -1127,6 +1117,65 @@
   </div>
 </section>
 
+<!-- COMING SOON -->
+<section class="coming-soon-section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Coming Soon</div>
+    <h3 class="coming-title">More tools dropping soon.</h3>
+    <p class="coming-sub">The hub keeps growing.</p>
+    <div class="coming-grid">
+      <div class="coming-card">
+        <div class="coming-icon">📡</div>
+        <h4>Opportunity Channel</h4>
+        <p>Exclusive gigs, brand deals, and side hustle opportunities sent directly to you.</p>
+        <div class="coming-label">Coming Soon</div>
+      </div>
+      <div class="coming-card">
+        <div class="coming-icon">📈</div>
+        <h4>Investing for Students</h4>
+        <p>How to start investing with RM100 — stocks, unit trusts, and growing your money.</p>
+        <div class="coming-label">Coming Soon</div>
+      </div>
+      <div class="coming-card">
+        <div class="coming-icon">⚖️</div>
+        <h4>Study + Income Balance</h4>
+        <p>The exact system I use to manage med school, business, and a social life.</p>
+        <div class="coming-label">Coming Soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap-section" id="roadmap">
+  <div class="section-inner">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">From zero to your<br/><em>first RM1,000.</em></h2>
+    <div class="roadmap-steps">
+      <div class="roadmap-step">
+        <div class="step-number">1</div>
+        <h4>Know Your Numbers</h4>
+        <p>Use the Budget Tracker to understand what you earn, spend, and need to hit your goal.</p>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-number">2</div>
+        <h4>Find Your Hustle</h4>
+        <p>Use the AI Analyser to discover which side hustle fits your skills and schedule.</p>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-number">3</div>
+        <h4>Launch This Week</h4>
+        <p>Follow the tutoring or freelancing guide to get your first paying client immediately.</p>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-number">4</div>
+        <h4>Stack &amp; Scale</h4>
+        <p>Reinvest your earnings. Add more streams. Build towards your first <strong>RM10k month</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
@@ -1135,7 +1184,7 @@
     <p class="section-body">Every week you don't start is a week of income you don't have. Take a free tool, use it this week, and book a call if you want me to look at your situation directly.</p>
     <div class="cta-buttons">
       <a href="#products" class="btn-cta-primary">Get The Free Tools</a>
-      <a href="REPLACE_WITH_YOUR_CALENDLY_LINK" class="btn-cta-ghost">Book a 1-on-1 · RM100</a>
+      <a href="REPLACE_WITH_YOUR_CALENDLY_LINK" class="btn-cta-ghost">Book a 1-on-1 Call</a>
     </div>
     <p class="cta-note">Free to download · No capital needed · Built for Malaysian students</p>
   </div>

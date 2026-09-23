@@ -23,6 +23,18 @@
   nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;
       justify-content:space-between;align-items:center;background:rgba(253,251,246,.94);
       backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-left{display:flex;align-items:center;gap:16px;min-width:0}
+  .nav-back{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+            font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+            color:var(--text-muted);text-decoration:none;transition:color .2s}
+  .nav-back:hover{color:var(--gold)}
+  .nav-back .arw{font-size:15px;line-height:1}
+  @media(max-width:560px){
+    .nav-left{gap:10px}
+    .nav-back span:not(.arw){display:none}
+    .nav-back{border:1px solid var(--border-mid);width:34px;height:34px;
+              justify-content:center;border-radius:50%;gap:0}
+  }
   .nav-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
             text-transform:uppercase;color:var(--gold);text-decoration:none}
   .nav-prog{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
@@ -192,12 +204,41 @@
     .earn div:last-child{border-bottom:none}
     .out-rate{font-size:46px}.prompt{font-size:11.5px;padding:18px}
   }
+
+  @media(max-width:520px){
+    .head{padding:92px 0 28px}
+    h1{font-size:clamp(32px,9.5vw,42px)}
+    .lede{font-size:15.5px;line-height:1.7}
+    .lvl-head{padding:18px 15px;gap:12px}
+    .lvl-badge{width:36px;height:36px;font-size:16px}
+    .lvl-t h2{font-size:17.5px;line-height:1.25}
+    .lvl-meta{font-size:8px}
+    .lvl-body{padding:0 15px 24px}
+    .lvl-body p,.lvl-body li{font-size:15px;line-height:1.75}
+    .lvl-body h3{font-size:18.5px;margin:22px 0 10px}
+    .quote{padding:16px 18px;font-size:14px}
+    .prompt{font-size:10.5px;padding:15px;line-height:1.7}
+    .todo{padding:20px 16px}
+    .todo p{font-size:14.5px}
+    .exbox .ph{padding:26px 14px}
+    .fin{padding:60px 18px}
+    .fin .price{font-size:38px}
+    .f-links{gap:14px 18px}
+
+    .calc{padding:18px 16px}
+    .calc select{font-size:15px;padding:13px}
+    .rs-num,.out-rate{font-size:40px}
+  }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  <div class="nav-left">
+    <a class="nav-back" href="tutoring.html"><span class="arw">&larr;</span><span>Back</span></a>
+    <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  </div>
   <span class="nav-prog" id="navProg">Level 1 of 5</span>
 </nav>
 
@@ -618,10 +659,9 @@ var CKEY='sh_tutor_calc', R=null;
 function calcHTML(){
   var o='';
   LEVELS.forEach(function(L,i){o+='<option value="'+i+'">'+L.n+'</option>';});
-  return '<div class="calc">'+
+  return '<div class="calc" id="price-calculator">'+
     '<h4>What can you charge?</h4>'+
     '<p class="sub">Six questions. Based on real Malaysian tuition prices.</p>'+
-    '<label>Your name</label><input id="c_name" type="text" placeholder="First name">'+
     '<label>Your highest study level</label><select id="c_qual">'+
       '<option value="spm">SPM</option><option value="pre">STPM, Diploma or Foundation</option>'+
       '<option value="uni" selected>Still in university</option>'+
@@ -657,8 +697,7 @@ function tierOf(q,e){var y=EXP[e].y;
 function runCalc(){
   var li=document.getElementById('c_lvl').value, sb=document.getElementById('c_sub').value;
   if(li===''||sb===''){alert('Please choose a level and a subject.');return;}
-  var a={name:document.getElementById('c_name').value.trim(),
-         qual:document.getElementById('c_qual').value,
+  var a={qual:document.getElementById('c_qual').value,
          lvl:li, sub:sb,
          exp:document.getElementById('c_exp').value,
          mode:document.getElementById('c_mode').value};
@@ -740,7 +779,7 @@ function makePDF(){
     d.text('SYAARVEENI  X  THE SIDE HUSTLE HUB',M,16);
     h('Your Tutoring Price Plan',22,DARK,32);
     d.setFont('helvetica','normal');d.setFontSize(10);d.setTextColor(MUT[0],MUT[1],MUT[2]);
-    d.text('Made for '+(R.a.name||'you'),M,40);
+    d.text('Your starting point',M,40);
 
     d.setFillColor(26,21,16);d.rect(M,50,W-M*2,34,'F');
     d.setFont('courier','normal');d.setFontSize(7.5);d.setTextColor(232,201,106);
@@ -769,7 +808,7 @@ function makePDF(){
     y=p('3.  Offer the first 30 minutes free. It costs you half an hour and removes all the risk for them.',y);
 
     y+=10;h('The message to send',13,DARK,y);y+=7;
-    var sc='Hi, I am '+(R.a.name||'[your name]')+'. I teach '+R.L.n+' and I have a few slots open this month.\n\n'+
+    var sc='Hi, I am [your name]. I teach '+R.L.n+' and I have a few slots open this month.\n\n'+
       'My rate is RM'+R.rate+' an hour, '+R.mode.n+'. The first 30 minutes are free, so your child can try it first before you decide.\n\n'+
       'I have attached my CV. Would you like to try?';
     var ln=d.splitTextToSize(sc,W-M*2-12);
@@ -829,7 +868,6 @@ function restoreCalc(){
   if(!document.getElementById('c_lvl'))return;
   try{
     var a=JSON.parse(localStorage.getItem(CKEY));if(!a)return;
-    var nm=document.getElementById('c_name');if(nm)nm.value=a.name||'';
     ['qual','lvl','sub','exp','mode'].forEach(function(k){
       var el=document.getElementById('c_'+k);if(el&&a[k]!=null)el.value=a[k];});
     showCalc(a);
@@ -853,7 +891,16 @@ function resetAll(){done=[];save(done);
   build();window.scrollTo({top:0,behavior:'smooth'});}
 
 build();
-if(done.length>0&&done.length<COURSE.length)toggle(done.length);
+/* linked straight to the calculator: open level 1 and scroll to it */
+if(location.hash==='#price-calculator'){
+  toggle(0);
+  setTimeout(function(){
+    var el=document.getElementById('price-calculator');
+    if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  },420);
+}else if(done.length>0&&done.length<COURSE.length){
+  toggle(done.length);
+}
 </script>
 </body>
 </html>

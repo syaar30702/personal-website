@@ -23,11 +23,20 @@
   nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;
       justify-content:space-between;align-items:center;background:rgba(253,251,246,.94);
       backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-left{display:flex;align-items:center;gap:16px;min-width:0}
+  .nav-back{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+            font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+            color:var(--text-muted);text-decoration:none;transition:color .2s}
+  .nav-back:hover{color:var(--gold)}
+  .nav-back .arw{font-size:15px;line-height:1}
+  @media(max-width:560px){
+    .nav-left{gap:10px}
+    .nav-back span:not(.arw){display:none}
+    .nav-back{border:1px solid var(--border-mid);width:34px;height:34px;
+              justify-content:center;border-radius:50%;gap:0}
+  }
   .nav-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
             text-transform:uppercase;color:var(--gold);text-decoration:none}
-  .nav-back{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
-            color:var(--text-muted);text-decoration:none}
-  .nav-back:hover{color:var(--gold)}
 
   .stage{min-height:100vh;padding:118px 22px 70px;display:flex;align-items:flex-start;justify-content:center}
   .card{max-width:620px;width:100%}
@@ -227,13 +236,35 @@
     .stats div:last-child{border-bottom:none}
     .diag,.pick,.nextstep{padding:22px 18px}
   }
+
+  @media(max-width:520px){
+    .stage{padding:92px 14px 44px}
+    h1{font-size:clamp(30px,9vw,40px)}
+    .qt{font-size:23px;line-height:1.16}
+    .qbm{font-size:15px}
+    .opt{padding:15px 15px;gap:11px}
+    .opt .en{font-size:15px}
+    .opt .my{font-size:13px}
+    .getlist li{font-size:14px}
+    .out-rate{font-size:40px}
+    .out-hero{padding:26px 18px}
+    .pick{padding:20px 18px}
+    .chartwrap{padding:12px 6px 6px}
+    .legend{gap:8px;font-size:10px}
+    section.blk{padding:48px 16px}
+    .sec-head h2{font-size:clamp(26px,8vw,34px)}
+    .cprice{font-size:42px}
+  }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
-  <a class="nav-back" href="index.html#products">&larr; All free resources</a>
+  <div class="nav-left">
+    <a class="nav-back" href="index.html#products"><span class="arw">&larr;</span><span>Back</span></a>
+    <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  </div>
 </nav>
 
 <div class="stage">

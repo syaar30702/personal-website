@@ -25,10 +25,20 @@
   nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;
       justify-content:space-between;align-items:center;background:rgba(253,251,246,.94);
       backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-left{display:flex;align-items:center;gap:16px;min-width:0}
+  .nav-back{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+            font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+            color:var(--text-muted);text-decoration:none;transition:color .2s}
+  .nav-back:hover{color:var(--gold)}
+  .nav-back .arw{font-size:15px;line-height:1}
+  @media(max-width:560px){
+    .nav-left{gap:10px}
+    .nav-back span:not(.arw){display:none}
+    .nav-back{border:1px solid var(--border-mid);width:34px;height:34px;
+              justify-content:center;border-radius:50%;gap:0}
+  }
   .nav-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
             text-transform:uppercase;color:var(--gold);text-decoration:none}
-  .nav-back{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);text-decoration:none}
-  .nav-back:hover{color:var(--gold)}
 
   .wrap{max-width:880px;margin:0 auto;padding:0 24px}
   .eyebrow{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;
@@ -135,6 +145,58 @@
   .modal .btn{width:100%;margin-top:6px}
   .fineprint{font-size:11px;color:var(--text-light);text-align:center;margin-top:14px}
 
+
+  /* ---------- ANIMATED PREVIEW ---------- */
+  .preview{background:var(--white);border-top:1px solid var(--border)}
+  .demo{position:relative;border:1px solid var(--border-mid);background:var(--cream);
+        overflow:hidden;box-shadow:var(--shadow-lg);line-height:0}
+  .demo img{width:100%;display:block}
+  .demo .fallback{aspect-ratio:16/9;display:none;flex-direction:column;align-items:center;
+                  justify-content:center;gap:10px;text-align:center;padding:30px;
+                  background:var(--cream);line-height:1.7}
+  .demo .fallback .ic{font-size:26px;opacity:.5}
+  .demo .fallback span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;
+                       text-transform:uppercase;color:var(--text-light)}
+
+  /* the cursor that roams the sheet */
+  .cursor{position:absolute;width:20px;height:20px;z-index:5;pointer-events:none;
+          margin:-2px 0 0 -2px;filter:drop-shadow(0 2px 4px rgba(26,21,16,.35));
+          animation:roam 12s cubic-bezier(.55,.06,.32,.99) infinite}
+  /* the ring that pops where it clicks */
+  .tap{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;
+       border:2px solid var(--gold);opacity:0;z-index:4;pointer-events:none;animation:tap 12s linear infinite}
+  .t1{left:27%;top:45%;animation-delay:-10.3s}
+  .t2{left:40%;top:20%;animation-delay:-8.4s}
+  .t3{left:66%;top:50%;animation-delay:-6.2s}
+  .t4{left:25%;top:84%;animation-delay:-4.1s}
+  .t5{left:80%;top:20%;animation-delay:-1.9s}
+
+  @keyframes roam{
+    0%   {left:14%; top:62%}
+    12%  {left:27%; top:45%}
+    16%  {left:27%; top:45%}
+    28%  {left:40%; top:20%}
+    32%  {left:40%; top:20%}
+    46%  {left:66%; top:50%}
+    50%  {left:66%; top:50%}
+    62%  {left:25%; top:84%}
+    68%  {left:25%; top:84%}
+    80%  {left:80%; top:20%}
+    86%  {left:80%; top:20%}
+    100% {left:14%; top:62%}
+  }
+  @keyframes tap{
+    0%   {opacity:.9; transform:scale(.3)}
+    5%   {opacity:.7; transform:scale(1)}
+    8%   {opacity:0;  transform:scale(1.25)}
+    100% {opacity:0;  transform:scale(1.25)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .cursor{animation:none;left:40%;top:30%}
+    .tap{display:none}
+  }
+  @media(max-width:600px){ .cursor{width:15px;height:15px} .tap{width:24px;height:24px;margin:-12px 0 0 -12px} }
+
   a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
   .call a:focus-visible{outline-color:var(--gold-bright)}
   @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
@@ -152,13 +214,32 @@
     .btn{width:100%;text-align:center}
     .modal{padding:28px 22px}
   }
+
+  @media(max-width:520px){
+    .hero{padding:104px 16px 48px}
+    .hero h1{font-size:clamp(32px,9.5vw,42px)}
+    .hero .lede{font-size:16px;line-height:1.7}
+    section{padding:52px 16px}
+    .sec-head{margin-bottom:32px}
+    .sec-head h2{font-size:clamp(26px,8vw,34px)}
+    .sec-head p{font-size:14.5px}
+    .cell{padding:20px 18px;gap:12px}
+    .cell p{font-size:14.5px}
+    .call-list li{font-size:14px}
+    .call-price{font-size:42px}
+    .dm-grid{max-width:300px}
+    .f-links{gap:14px 18px}
+  }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
-  <a class="nav-back" href="index.html#products">&larr; All free resources</a>
+  <div class="nav-left">
+    <a class="nav-back" href="index.html#products"><span class="arw">&larr;</span><span>Back</span></a>
+    <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  </div>
 </nav>
 
 <div class="hero">
@@ -168,6 +249,32 @@
   <button type="button" class="btn" data-open-modal>Free Download</button>
   <p class="note">Free &middot; Google Sheets and Excel &middot; Built for Malaysian students</p>
 </div>
+
+
+<section class="preview">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">A Look Inside</div>
+      <h2>This is what <em>your month</em> looks like.</h2>
+      <p>Fill in what comes in and what goes out. Everything else works itself out.</p>
+    </div>
+
+    <div class="demo">
+      <img src="budget-preview.png" alt="The Student Budget Planner, showing income, expenses and savings for one month"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="fallback">
+        <span class="ic">&#128202;</span>
+        <span>Save your screenshot as<br/>budget-preview.png</span>
+      </div>
+      <span class="tap t1"></span><span class="tap t2"></span><span class="tap t3"></span>
+      <span class="tap t4"></span><span class="tap t5"></span>
+      <svg class="cursor" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M2 2 L2 15 L6 11.5 L8.5 17 L11 16 L8.5 10.5 L14 10.5 Z"
+              fill="#1A1510" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
 
 <section class="inside">
   <div class="wrap">

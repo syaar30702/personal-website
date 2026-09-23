@@ -25,10 +25,20 @@
   nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;
       justify-content:space-between;align-items:center;background:rgba(253,251,246,.94);
       backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-left{display:flex;align-items:center;gap:16px;min-width:0}
+  .nav-back{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+            font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+            color:var(--text-muted);text-decoration:none;transition:color .2s}
+  .nav-back:hover{color:var(--gold)}
+  .nav-back .arw{font-size:15px;line-height:1}
+  @media(max-width:560px){
+    .nav-left{gap:10px}
+    .nav-back span:not(.arw){display:none}
+    .nav-back{border:1px solid var(--border-mid);width:34px;height:34px;
+              justify-content:center;border-radius:50%;gap:0}
+  }
   .nav-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
             text-transform:uppercase;color:var(--gold);text-decoration:none}
-  .nav-back{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);text-decoration:none}
-  .nav-back:hover{color:var(--gold)}
 
   .wrap{max-width:880px;margin:0 auto;padding:0 24px}
   .eyebrow{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;
@@ -54,6 +64,9 @@
        font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;
        text-transform:uppercase;transition:.25s;display:inline-block;text-decoration:none;border-radius:1px}
   .btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 14px 38px rgba(184,150,46,.3)}
+  .cta-pair{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-alt{background:none;border:1px solid var(--gold);color:var(--gold)}
+  .btn-alt:hover{background:var(--cream);color:var(--gold);box-shadow:none}
 
   /* ---------- SECTIONS ---------- */
   section{padding:84px 24px}
@@ -150,23 +163,46 @@
     .call-list{border-right:none;border-bottom:1px solid rgba(255,255,255,.16);padding:28px 22px}
     .call-buy{padding:28px 22px}
     .btn{width:100%;text-align:center}
+    .cta-pair{flex-direction:column;gap:11px}
     .modal{padding:28px 22px}
   }
+
+  @media(max-width:520px){
+    .hero{padding:104px 16px 48px}
+    .hero h1{font-size:clamp(32px,9.5vw,42px)}
+    .hero .lede{font-size:16px;line-height:1.7}
+    section{padding:52px 16px}
+    .sec-head{margin-bottom:32px}
+    .sec-head h2{font-size:clamp(26px,8vw,34px)}
+    .sec-head p{font-size:14.5px}
+    .cell{padding:20px 18px;gap:12px}
+    .cell p{font-size:14.5px}
+    .call-list li{font-size:14px}
+    .call-price{font-size:42px}
+    .dm-grid{max-width:300px}
+    .f-links{gap:14px 18px}
+  }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
-  <a class="nav-back" href="index.html#products">&larr; All free resources</a>
+  <div class="nav-left">
+    <a class="nav-back" href="index.html#products"><span class="arw">&larr;</span><span>Back</span></a>
+    <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  </div>
 </nav>
 
 <div class="hero">
   <div class="eyebrow">Free Course &middot; 5 Levels</div>
   <h1>How do I get my <em>first student?</em></h1>
   <p class="lede">A free 5-level course. Work out what to charge, build a tutor CV with AI, find parents, and get your first student. Built from what I did to go from zero to RM80 an hour.</p>
-  <a class="btn" href="tutoring-course.html">Start The Free Course</a>
-  <p class="note">Free &middot; No signup to start &middot; About 20 minutes in total</p>
+  <div class="cta-pair">
+    <button type="button" class="btn" data-open-modal>Start The Free Course</button>
+    <a class="btn btn-alt" href="tutoring-course.html#price-calculator">Find Out How Much You Can Charge</a>
+  </div>
+  <p class="note">Free &middot; Sent to your inbox &middot; About 20 minutes in total</p>
 </div>
 
 <section class="inside">
@@ -251,6 +287,38 @@
   </div>
   <p class="f-copy">&copy; 2026 Syaarveeni &middot; The Side Hustle Hub &middot; All rights reserved.</p>
 </footer>
+
+
+<div class="backdrop" id="emailModal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal">
+    <button class="modal-close" type="button" data-close-modal aria-label="Close">&times;</button>
+    <div class="eyebrow">Almost There</div>
+    <h3 id="mTitle">Where should I <em>send it?</em></h3>
+    <p>Enter your email and I'll send you the link to the course. You can start straight away, and
+    come back to it any time. No spam, and you can unsubscribe whenever you like.</p>
+    <!-- Replace the action URL with your Kit / Mailchimp form endpoint.
+         Set the form's incentive to deliver the course link. -->
+    <form action="REPLACE_WITH_YOUR_EMAIL_FORM_URL" method="post">
+      <input type="text" name="first_name" placeholder="First name" aria-label="First name" required>
+      <input type="email" name="email_address" placeholder="Your email" aria-label="Your email" required>
+      <button type="submit" class="btn">Send Me The Course</button>
+      <p class="fineprint">Free &middot; 5 levels &middot; Built for Malaysian students</p>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  var m=document.getElementById('emailModal'),last=null;
+  function open(){last=document.activeElement;m.classList.add('open');
+    document.body.classList.add('modal-open');var f=m.querySelector('input');if(f)f.focus();}
+  function close(){m.classList.remove('open');document.body.classList.remove('modal-open');if(last)last.focus();}
+  document.querySelectorAll('[data-open-modal]').forEach(function(b){b.addEventListener('click',open)});
+  document.querySelectorAll('[data-close-modal]').forEach(function(b){b.addEventListener('click',close)});
+  m.addEventListener('click',function(e){if(e.target===m)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close()});
+})();
+</script>
 
 </body>
 </html>

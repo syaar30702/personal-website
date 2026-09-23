@@ -23,6 +23,18 @@
   nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;
       justify-content:space-between;align-items:center;background:rgba(253,251,246,.94);
       backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-left{display:flex;align-items:center;gap:16px;min-width:0}
+  .nav-back{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+            font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+            color:var(--text-muted);text-decoration:none;transition:color .2s}
+  .nav-back:hover{color:var(--gold)}
+  .nav-back .arw{font-size:15px;line-height:1}
+  @media(max-width:560px){
+    .nav-left{gap:10px}
+    .nav-back span:not(.arw){display:none}
+    .nav-back{border:1px solid var(--border-mid);width:34px;height:34px;
+              justify-content:center;border-radius:50%;gap:0}
+  }
   .nav-logo{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
             text-transform:uppercase;color:var(--gold);text-decoration:none}
   .nav-prog{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
@@ -189,12 +201,42 @@
     .rs-bars div:last-child{border-bottom:none}
     .rs-num{font-size:42px}.prompt{font-size:11.5px;padding:18px}
   }
+
+  @media(max-width:520px){
+    .head{padding:92px 0 28px}
+    h1{font-size:clamp(32px,9.5vw,42px)}
+    .lede{font-size:15.5px;line-height:1.7}
+    .lvl-head{padding:18px 15px;gap:12px}
+    .lvl-badge{width:36px;height:36px;font-size:16px}
+    .lvl-t h2{font-size:17.5px;line-height:1.25}
+    .lvl-meta{font-size:8px}
+    .lvl-body{padding:0 15px 24px}
+    .lvl-body p,.lvl-body li{font-size:15px;line-height:1.75}
+    .lvl-body h3{font-size:18.5px;margin:22px 0 10px}
+    .quote{padding:16px 18px;font-size:14px}
+    .prompt{font-size:10.5px;padding:15px;line-height:1.7}
+    .todo{padding:20px 16px}
+    .todo p{font-size:14.5px}
+    .exbox .ph{padding:26px 14px}
+    .fin{padding:60px 18px}
+    .fin .price{font-size:38px}
+    .f-links{gap:14px 18px}
+
+    .rs{padding:18px 16px}
+    .rs .row,.rs .hdr{grid-template-columns:1fr 78px;gap:7px}
+    .rs input{font-size:14px;padding:11px}
+    .rs-num{font-size:40px}
+  }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  <div class="nav-left">
+    <a class="nav-back" href="freelancing.html"><span class="arw">&larr;</span><span>Back</span></a>
+    <a class="nav-logo" href="index.html">Syaarveeni &times; Side Hustle Hub</a>
+  </div>
   <span class="nav-prog" id="navProg">Level 1 of 5</span>
 </nav>
 
