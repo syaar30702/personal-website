@@ -64,7 +64,13 @@
        font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;
        text-transform:uppercase;transition:.25s;display:inline-block;text-decoration:none;border-radius:1px}
   .btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 14px 38px rgba(184,150,46,.3)}
-  .cta-pair{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  /* equal columns, so neither button dominates the other */
+  .cta-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:14px;max-width:520px;margin:0 auto}
+  /* a button and a link render at different heights by default; inline-flex
+     with the same padding and line-height makes them identical */
+  .cta-pair .btn{width:100%;display:inline-flex;align-items:center;justify-content:center;
+                 padding:0 18px;min-height:56px;line-height:1.25;text-align:center}
   .btn-alt{background:none;border:1px solid var(--gold);color:var(--gold)}
   .btn-alt:hover{background:var(--cream);color:var(--gold);box-shadow:none}
 
@@ -163,7 +169,7 @@
     .call-list{border-right:none;border-bottom:1px solid rgba(255,255,255,.16);padding:28px 22px}
     .call-buy{padding:28px 22px}
     .btn{width:100%;text-align:center}
-    .cta-pair{flex-direction:column;gap:11px}
+    .cta-pair{grid-template-columns:1fr;gap:11px;max-width:340px}
     .modal{padding:28px 22px}
   }
 
@@ -200,7 +206,7 @@
   <p class="lede">A free 5-level course. Work out what to charge, build a tutor CV with AI, find parents, and get your first student. Built from what I did to go from zero to RM80 an hour.</p>
   <div class="cta-pair">
     <button type="button" class="btn" data-open-modal>Start The Free Course</button>
-    <a class="btn btn-alt" href="tutoring-course.html#price-calculator">Find Out How Much You Can Charge</a>
+    <a class="btn btn-alt" href="tutoring-course.html#price-calculator">What Can I Charge?</a>
   </div>
   <p class="note">Free &middot; Sent to your inbox &middot; About 20 minutes in total</p>
 </div>
