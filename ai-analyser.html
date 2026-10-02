@@ -8,6 +8,13 @@
 <meta property="og:title" content="Side Hustle Analyser">
 <meta property="og:description" content="7 soalan. Cari tahu side hustle mana paling sesuai untuk anda.">
 <meta property="og:type" content="website">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<meta property="og:image" content="https://syaarveeni.com/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://syaarveeni.com/ai-analyser.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://syaarveeni.com/share.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -256,6 +263,40 @@
     .cprice{font-size:42px}
   }
 
+
+  /* ── MOBILE: reviews as one horizontal, swipeable row ── */
+  @media(max-width:780px){
+    .dm-grid{
+      display:flex !important;
+      grid-template-columns:none !important;
+      max-width:none !important;
+      margin:0 -18px !important;
+      padding:0 18px 12px !important;
+      gap:12px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .dm-grid::-webkit-scrollbar{display:none}
+    .dm{flex:0 0 76%; scroll-snap-align:center}
+  }
+
+  /* ── VSL ── */
+  .vsl{background:var(--cream);border-top:1px solid var(--border);
+       border-bottom:1px solid var(--border);padding:76px 24px}
+  .vsl-in{max-width:820px;margin:0 auto;text-align:center}
+  .vsl-eyebrow{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;
+               text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .vsl h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);
+          font-weight:600;line-height:1.12;margin-bottom:14px;color:var(--text-dark)}
+  .vsl h2 em{font-style:italic;color:var(--gold)}
+  .vsl p.sub{font-size:16px;line-height:1.8;color:var(--text-muted);
+             max-width:520px;margin:0 auto 34px}
+  .vsl-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--border-mid);
+             background:#0f0c09;box-shadow:0 16px 64px rgba(184,150,46,.12);overflow:hidden}
+  .vsl-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  @media(max-width:640px){ .vsl{padding:52px 18px} }
 </style>
 </head>
 <body>
@@ -322,6 +363,20 @@
       </div>
     </div>
     <p class="rev-note">These are real messages from students who used this.</p>
+  </div>
+</section>
+
+
+<section class="vsl">
+  <div class="vsl-in">
+    <div class="vsl-eyebrow">Start Here</div>
+    <h2>How this <em>actually works.</em></h2>
+    <p class="sub">A few minutes on what I did, what I would do differently, and how to use everything on this site.</p>
+    <div class="vsl-frame">
+      <iframe src="https://www.youtube.com/embed/DhIcXUWbZAc" title="How this actually works"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+    </div>
   </div>
 </section>
 

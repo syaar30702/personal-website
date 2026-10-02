@@ -8,6 +8,13 @@
 <meta property="og:title" content="Student Budget Planner — free from The Side Hustle Hub">
 <meta property="og:description" content="A free planner to help Malaysian students see exactly what they earn, what they spend, and what is left.">
 <meta property="og:type" content="website">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<meta property="og:image" content="https://syaarveeni.com/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://syaarveeni.com/budget-planner.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://syaarveeni.com/share.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -158,6 +165,12 @@
   .modal input:focus{outline:2px solid var(--gold);outline-offset:1px}
   .modal .btn{width:100%;margin-top:6px}
   .fineprint{font-size:11px;color:var(--text-light);text-align:center;margin-top:14px}
+  .after-dl{margin-top:20px;padding-top:20px;border-top:1px solid var(--border-mid);text-align:center}
+  .after-dl .dl-lead{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
+  .after-dl .btn{width:100%;margin-bottom:9px}
+  .after-dl .btn-ghost{background:none;border:1px solid var(--gold);color:var(--gold)}
+  .after-dl .btn-ghost:hover{background:var(--cream);color:var(--gold);box-shadow:none}
+  .after-dl .dl-note{font-size:11px;color:var(--text-light);margin-top:6px}
 
   /* Kit injects these on error and on success */
   .formkit-alert{list-style:none;margin:0 0 14px;padding:12px 14px;font-size:13px;
@@ -254,6 +267,40 @@
     .f-links{gap:14px 18px}
   }
 
+
+  /* ── MOBILE: reviews as one horizontal, swipeable row ── */
+  @media(max-width:780px){
+    .dm-grid{
+      display:flex !important;
+      grid-template-columns:none !important;
+      max-width:none !important;
+      margin:0 -18px !important;
+      padding:0 18px 12px !important;
+      gap:12px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .dm-grid::-webkit-scrollbar{display:none}
+    .dm{flex:0 0 76%; scroll-snap-align:center}
+  }
+
+  /* ── VSL ── */
+  .vsl{background:var(--cream);border-top:1px solid var(--border);
+       border-bottom:1px solid var(--border);padding:76px 24px}
+  .vsl-in{max-width:820px;margin:0 auto;text-align:center}
+  .vsl-eyebrow{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;
+               text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .vsl h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);
+          font-weight:600;line-height:1.12;margin-bottom:14px;color:var(--text-dark)}
+  .vsl h2 em{font-style:italic;color:var(--gold)}
+  .vsl p.sub{font-size:16px;line-height:1.8;color:var(--text-muted);
+             max-width:520px;margin:0 auto 34px}
+  .vsl-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--border-mid);
+             background:#0f0c09;box-shadow:0 16px 64px rgba(184,150,46,.12);overflow:hidden}
+  .vsl-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  @media(max-width:640px){ .vsl{padding:52px 18px} }
 </style>
 </head>
 <body>
@@ -354,6 +401,20 @@
   </div>
 </section>
 
+
+<section class="vsl">
+  <div class="vsl-in">
+    <div class="vsl-eyebrow">Start Here</div>
+    <h2>How this <em>actually works.</em></h2>
+    <p class="sub">A few minutes on what I did, what I would do differently, and how to use everything on this site.</p>
+    <div class="vsl-frame">
+      <iframe src="https://www.youtube.com/embed/DhIcXUWbZAc" title="How this actually works"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
 <section class="call">
   <div class="wrap">
     <div class="eyebrow">Want Help Applying It?</div>
@@ -397,7 +458,7 @@
     <button class="modal-close" type="button" data-close-modal aria-label="Close">&times;</button>
     <div class="eyebrow">Almost There</div>
     <h3 id="mTitle">Where should I <em>send it?</em></h3>
-    <p>Enter your email and the file arrives straight away. No spam, and you can unsubscribe any time.</p>
+    <p>Enter your name and email and the sheet downloads straight away. You can also open it in Google Sheets instead. No spam, unsubscribe any time.</p>
     <!-- Kit form. The classes and data- attributes are what Kit's script looks
          for; the styling is ours. Submitting stays on the page and Kit swaps in
          the success message. -->
@@ -408,7 +469,7 @@
           data-uid="948ed5f542"
           data-format="inline"
           data-version="5"
-          data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Done! Check your email for your budget sheet.","redirect_url":""},"return_visitor":{"action":"show","custom_content":""}},"version":"5"}'>
+          data-options='{"settings": {"after_subscribe": {"action": "message", "success_message": "Done! Your budget sheet is downloading now. Check your email for a copy too.", "redirect_url": ""}, "analytics": {"google": null, "fathom": null, "facebook": null, "segment": null, "pinterest": null, "sparkloop": null, "googletagmanager": null}, "modal": {"trigger": "timer", "scroll_percentage": null, "timer": 5, "devices": "all", "show_once_every": 15}, "powered_by": {"show": false, "url": "https://kit.com/features/forms"}, "recaptcha": {"enabled": false}, "return_visitor": {"action": "show", "custom_content": ""}, "slide_in": {"display_in": "bottom_right", "trigger": "timer", "scroll_percentage": null, "timer": 5, "devices": "all", "show_once_every": 15}, "sticky_bar": {"display_in": "top", "trigger": "timer", "scroll_percentage": null, "timer": 5, "devices": "all", "show_once_every": 15}}, "version": "5"}'>
       <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
       <input type="text" name="fields[first_name]" placeholder="First name" aria-label="First name" required>
       <input type="email" name="email_address" placeholder="Your email" aria-label="Your email" required>
@@ -432,5 +493,66 @@
 </script>
 
 <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+<script>
+/* ==========================================================================
+   BUDGET SHEET DOWNLOAD
+   Kit still captures the email. This also hands them the file immediately,
+   so they don't have to wait for the confirmation email.
+
+   TO POINT THIS AT YOUR FILE: change the line below to your filename and put
+   that file in the same folder as this page. A Google Sheets "copy" link works
+   too — paste the full URL instead of the filename.
+   ========================================================================== */
+var SHEET_FILE  = 'student-budget-sheet.zip';
+var SHEETS_COPY = 'https://docs.google.com/spreadsheets/d/1LE1zL0-xeaBh_isG8L_6M-o44PPXjZm_QSF5vAXYGqQ/copy';
+
+(function(){
+  var form = document.querySelector('#emailModal form');
+  if(!form) return;
+  var fired = false;
+
+  function deliver(){
+    if(fired) return;
+    fired = true;
+
+    /* start the download */
+    var a = document.createElement('a');
+    a.href = SHEET_FILE;
+    a.setAttribute('download','');
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    /* then show both routes, in case the browser blocked the download or
+       they would rather work in Google Sheets */
+    var modal = document.querySelector('#emailModal .modal');
+    if(!modal || modal.querySelector('.after-dl')) return;
+    var box = document.createElement('div');
+    box.className = 'after-dl';
+    box.innerHTML =
+      '<p class="dl-lead">Your download has started. If nothing happened, use the button below.</p>' +
+      '<a class="btn" href="' + SHEET_FILE + '" download>Download the sheet</a>' +
+      '<a class="btn btn-ghost" href="' + SHEETS_COPY + '" target="_blank" rel="noopener">Open in Google Sheets</a>' +
+      '<p class="dl-note">Google Sheets will ask you to make a copy. That copy is yours.</p>';
+    modal.appendChild(box);
+  }
+
+  form.addEventListener('submit', function(){
+    /* Kit replaces the form with its success message when the subscriber is
+       created — watch for that and hand over the file the moment it appears. */
+    var modal = document.querySelector('#emailModal .modal');
+    var obs = new MutationObserver(function(){
+      if(modal.querySelector('.formkit-alert-success') ||
+         /downloading now/i.test(modal.textContent)) { deliver(); obs.disconnect(); }
+    });
+    obs.observe(modal, {childList:true, subtree:true, characterData:true});
+
+    /* fallback: if Kit's script is blocked or slow, still give them the file */
+    setTimeout(deliver, 2500);
+  });
+})();
+</script>
+
 </body>
 </html>
